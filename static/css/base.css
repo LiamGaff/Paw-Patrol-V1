@@ -1,0 +1,135 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato';
+}
+
+/* ..................................... Header */
+
+header{
+    background: url('/media/header_img.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 50vh;
+    width: 100%;
+}
+
+#logo{
+    background-color: orangered;
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px black;
+    height: 150px;
+    width: 300px;
+
+}
+
+.donate-nav{
+    background-color: orangered;
+    border: solid 2px black;
+    color: black;
+    font-size: 1rem;
+}
+
+.list-inline-item:not(:last-child){
+    margin-right: 1rem;
+}
+
+.logo-font{
+    font-size: 2rem;
+}
+
+.paw-logo{
+    font-size: 1.7rem;
+}
+
+.nav-text{
+    font-size: 1.2rem;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+    padding: 0.5rem;
+}
+
+
+.main-logo-link {
+    width: fit-content;
+    padding-left: 2.5rem;
+    padding-top: 2.1rem;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important; /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
