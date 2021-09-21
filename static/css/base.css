@@ -6,25 +6,18 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
+    background: transparent;
 }
 
 /* ..................................... Header */
-
-header{
-    background: url('/media/header_img.jpg') no-repeat center center fixed;
-    background-size: cover;
-    min-height: 50vh;
-    width: 100%;
-}
 
 #logo{
     background-color: orangered;
     position: absolute;
     border-radius: 50%;
-    border: solid 1px black;
+    border: solid 2px black;
     height: 150px;
     width: 300px;
-
 }
 
 .donate-nav{
@@ -48,7 +41,49 @@ header{
 
 .nav-text{
     font-size: 1.2rem;
+    font-weight: 600;
 }
+
+/* .nav-link{
+    border: 1px solid black
+} */
+
+
+/* ..................................... Slider */
+
+#slider{
+    overflow:hidden
+}
+
+#slider figure{
+    position: relative;
+    width: 200%;
+    margin: 0;
+    left: 0;
+    animation: 20s slider infinite;
+}
+
+#slider figure img{
+    width: 50%;
+    float: left;
+    height: 60vh;
+}
+
+@keyframes slider{
+    0% {
+        left: 0;
+    }
+    20% {
+        left: 0; 
+    }
+    25% {
+        left: -100%;
+    }
+    45% {
+        left: -100%;
+    }
+}
+
 
 /* from Bulma */
 .icon {
@@ -133,3 +168,27 @@ a.category-badge > span.badge:hover {
     bottom: 10px;
     right: 10px;
 }
+
+
+/* -------------------------------- Media Queries */
+
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+  
