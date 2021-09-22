@@ -1,20 +1,76 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col col-md-6">
-                <h2>About</h2>
+            <div class="col-12 my-5 text-center">
+                <h2 class="headings"><u>About</u></h2>
+                <i class="fas fa-dog headings"></i>
             </div>
         </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-8 text-center">
+                <p class="info-text">
+                    Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
+                    nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to take care of them.
+
+                   <br>
+                    
+                    We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where ever they may be. We our a non profit organisation
+                    and all of our voluteers give up their homes for these lost animal out of the kindess of their hearts.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 my-5 text-center">
+                <h2 class="headings"><u>Meet The Team</u></h2>
+                <i class="fas fa-dog"></i>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col my-auto">
+              <div class="card h-100">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Name1</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-12 my-5 text-center">
+                    <h2 class="headings"><u>Contact Us</u></h2>
+                    <i class="fas fa-phone"></i>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-8 text-center">
+                    <p class="info-text">
+                        Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
+                        nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to take care of them.
+                        We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where ever they may be. We our a non profit organisation
+                        and all of our voluteers give up their homes for these lost animal out of the kindess of their hearts.
+                    </p>
+                </div>
+                <div class="row row justify-content-around">
+                    <div class="col-4">
+                        <h3>Email:</h3>
+                        <p></p>
+                        <h3>Phone:</h3>
+                        <p></p>
+                        <h3>Address:</h3>
+                        <p></p>
+                    </div>
+                    <div class="col-4">
+                        <form action="">
+                            This is where the form will go
+                        </form>
+                    </div>
+                </div>
     </div>
 {% endblock %}

@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Montserrat:wght@400;600&family=Permanent+Marker&display=swap');
+
 html {
     height: 100%;
+    width: 1005;
 }
 
 body {
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
+    font-family: 'Lora', Lato;
+    font-style: italic;
     background: transparent;
+    width: 100%;
 }
 
 /* ..................................... Header/Nav */
@@ -54,12 +59,13 @@ body {
 .donate-banner{
     position: absolute;
     top: 40%;
-    left: 60%;
+    max-width: 100%;
 }
 
 .donate-banner-h{
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 3rem;
+    font-family: 'PermanentMarker';
     color: #ebebeb;
     text-shadow:
     0.07em 0 black,
@@ -70,13 +76,18 @@ body {
 
 .donate-banner-p{
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    font-family: 'PermanentMarker';
     color: #ebebeb;
     text-shadow:
     0.09em 0 black,
     0 0.09em black,
     -0.09em 0 black,
     0 -0.09em black;
+}
+
+.banner-row{
+    width: 100%;
 }
 
 #topnav{
@@ -122,6 +133,22 @@ body {
     45% {
         left: -100%;
     }
+}
+
+
+/* ..................................... Home page */
+
+.headings{
+font-family: 'Montserrat';
+font-weight: 600;
+font-size: 2rem;
+color: #2f4f4f;
+}
+
+.info-text{
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #002147;
 }
 
 
@@ -212,11 +239,11 @@ a.category-badge > span.badge:hover {
 
 /* -------------------------------- Media Queries */
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
     .container {
       max-width: 80%;
     }
-  }
+  } */
 
   @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -232,9 +259,20 @@ a.category-badge > span.badge:hover {
     }
 }
 
-@media (max-width: 950px){
+@media (min-width: 1024px){
+    #logo{
+        position: fixed;
+    }
+}
+
+@media (max-width: 1260px){
     .donate-banner{
-        left: 0%;
+        top: 20%;
+    }
+}
+
+@media (max-width: 954px){
+    .donate-banner{
         top: 20%;
     }
 
