@@ -2,7 +2,6 @@
 
 html {
     height: 100%;
-    width: 1005;
 }
 
 body {
@@ -10,14 +9,18 @@ body {
     color: #555;
     font-family: 'Lora', Lato;
     font-style: italic;
-    background: transparent;
-    width: 100%;
+    background: #c5d5cb;
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 1vh
 }
 
 /* ..................................... Header/Nav */
 
 #logo{
-    background-color: orangered;
+    background-color: #c5d5cb;
     position: absolute;
     border-radius: 50%;
     border: solid 2px black;
@@ -26,9 +29,9 @@ body {
 }
 
 .donate-nav{
-    background-color: orangered;
+    background-color: #c5d5cb;
     border: solid 2px black;
-    color: #FDF6F6;
+    color: #f0ffff;
     font-size: 1rem;
 }
 
@@ -43,18 +46,14 @@ body {
 
 .paw-logo{
     font-size: 1.7rem;
-    color: #FDF6F6;
+    color: #f0ffff;
 }
 
 .nav-text{
     font-size: 1.2rem;
     font-weight: 700;
-    color: #FDF6F6;
+    color: #f0ffff;
 }
-
-/* .nav-link{
-    border: 1px solid black
-} */
 
 .donate-banner{
     position: absolute;
@@ -97,7 +96,7 @@ body {
 
 .navbar-toggler {
     border: 2px solid black;
-    background-color: orangered;
+    background-color: #c5d5cb;
 }
 
 /* ..................................... Slider */
@@ -142,30 +141,44 @@ body {
 font-family: 'Montserrat';
 font-weight: 600;
 font-size: 2rem;
-color: #2f4f4f;
+color: ;
 }
 
 .sub-headings{
     font-family: 'Montserrat';
     font-weight: 400;
     font-size: 1.5rem;
-    color: #2f4f4f;
+    color: #f0ffff;
 }
 
 .info-text{
     font-weight: 400;
     font-size: 1.3rem;
     color: #002147;
+    text-shadow: 2px 2px #e3e0cf;
 }
 
 /* cards */
 
 .card{
-    border: 1px solid rgba(255,69,0, 0.4);
+    border: solid 2px #9fa8a3;
+    box-shadow: 3px 7px #9fa8a3;
 }
 
 .card-body{
-    border-top: 1px solid rgba(255,69,0, 0.4);
+    background-color:#e3e0cf;
+}
+
+.card-bg{
+    border: 2px solid #9fa8a3;
+    padding: 2rem 6rem 2rem 6rem;
+    background-color: #e3e0cf;
+    box-shadow: 6px 10px #9fa8a3;
+    width: 90%;
+}
+
+.card img{
+    max-height: 277px;
 }
 
 /* from Bulma */

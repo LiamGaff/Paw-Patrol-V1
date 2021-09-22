@@ -4,13 +4,13 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 my-5 text-center">
-                <h2 class="headings"><u>About</u></h2>
+            <div class="col-12 my-5 text-center mb-2">
+                <h2 class="headings"><bold>About</bold></h2>
                 <i class="fas fa-dog headings"></i>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-8 text-center">
+            <div class="col-11 text-center">
                 <p class="info-text">
                     Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
                     nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to take care of them.
@@ -23,22 +23,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 my-5 text-center">
-                <h2 class="headings"><u>Meet The Team</u></h2>
-                <i class="fas fa-dog"></i>
+            <div class="col-12 my-5 text-center mb-2">
+                <h2 class="headings">Meet The Team</h2>
+                <i class="fas fa-users headings"></i>
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for volunteer in volunteers %}
-                <div class="col my-auto">
-                    <div class="card h-50">
+                <div class="col">
+                    <div class="card h-100">
                         {% if volunteer.image %}
                             <img src="{{ volunteer.image.url }}" class="card-img-top" alt="{{ volnteer.name }}">
                         {% else %}
-                            <img src="{{ MEDIA_URL }}no_image.jpg" class="card-img-top" alt="{{ volnteer.name }}">
+                            <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top" alt="{{ volnteer.name }}">
                         {% endif %}
                         <div class="card-body">
-                            <h4 class="card-title sub-heading">{{ volunteer.friendly_name }}</h4>
+                            <h4 class="card-title sub-headings">{{ volunteer.friendly_name }}</h4>
                             <p class="card-text info-text">{{ volunteer.about }}</p>
                             </div>
                         <div class="card-footer">
@@ -49,33 +49,39 @@
             {% endfor %}
         </div>
             <div class="row">
-                <div class="col-12 my-5 text-center">
-                    <h2 class="headings"><u>Contact Us</u></h2>
-                    <i class="fas fa-phone"></i>
+                <div class="col-12 my-5 text-center mb-2">
+                    <h2 class="headings">Contact Us</h2>
+                    <i class="fas fa-phone headings"></i>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-8 text-center">
                     <p class="info-text">
-                        Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
-                        nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to take care of them.
-                        We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where ever they may be. We our a non profit organisation
-                        and all of our voluteers give up their homes for these lost animal out of the kindess of their hearts.
+                        If you have any questions about our services, volunteering, or donations please get in touch through the form below.
+                        You can also get in touch directly through the phone or email details below. Office hours may vary.
                     </p>
                 </div>
-                <div class="row row justify-content-around">
-                    <div class="col-4">
-                        <h3>Email:</h3>
-                        <p></p>
-                        <h3>Phone:</h3>
-                        <p></p>
-                        <h3>Address:</h3>
-                        <p></p>
-                    </div>
-                    <div class="col-4">
-                        <form action="">
-                            This is where the form will go
-                        </form>
+                <div class="row justify-content-around mt-3 mb-4">
+                    <div class="row card-bg">
+                        <div class="col-6">
+                            <h3>Email:</h3>
+                                <p>PawP@testmail.com</p>
+                            <h3>Phone:</h3>
+                                <p>054 t50t68</p>
+                            <h3>Address:</h3>
+                                <p>Test raod, test <br> test test</p>
+                        </div>
+                        <div class="col-6 text-center">
+                            <form action="#" method="post">
+                                <label for="Name" class="form-text">Full Name:</label>
+                                <input id="Name" type="text" placeholder="John Doe" class="contact-text-input" required>
+                                <label for="email" class="form-text">Email:</label>
+                                <input id="email" type="email" placeholder="john5@gmail.com" class="contact-text-input" required>
+                                <label for="Question" class="form-text">Question:</label>
+                                <textarea id="Question" name="Question" rows="2" placeholder="What's on your mind?" class="contact-text-input" required></textarea>
+                                <input type="submit" class="contact-submit-input">
+                            </form>
+                        </div>
                     </div>
                 </div>
     </div>
