@@ -1,22 +1,31 @@
 [
     {
         "pk": 1,
-        "model": "home.volunteers",
+        "model": "home.volunteer",
         "fields": {
             "name": "jack_hill",
             "friendly_name": "Jack Hill",
             "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "image": ""
+            "image": "jack_test.jpg"
         }
     },
     {
         "pk": 2,
-        "model": "home.volunteers",
+        "model": "home.volunteer",
         "fields": {
             "name": "jill_hill",
             "friendly_name": "Jill Hill",
             "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "image": ""
+            "image": "jill_test.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "home.volunteer",
+        "fields": {
+            "name": "james_hill",
+            "friendly_name": "James Hill",
+            "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         }
     }
 ]

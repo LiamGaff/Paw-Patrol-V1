@@ -1,7 +1,7 @@
 [
     {
         "pk": 1,
-        "model": "home.animals",
+        "model": "home.animal",
         "fields": {
             "name": "max_Garret",
             "friendly_name": "Max",
@@ -13,7 +13,7 @@
     },
     {
         "pk": 2,
-        "model": "home.animals",
+        "model": "home.animal",
         "fields": {
             "name": "fluffy_dowling",
             "friendly_name": "Fluffy",

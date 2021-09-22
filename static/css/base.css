@@ -145,12 +145,28 @@ font-size: 2rem;
 color: #2f4f4f;
 }
 
+.sub-headings{
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #2f4f4f;
+}
+
 .info-text{
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-weight: 400;
+    font-size: 1.3rem;
     color: #002147;
 }
 
+/* cards */
+
+.card{
+    border: 1px solid rgba(255,69,0, 0.4);
+}
+
+.card-body{
+    border-top: 1px solid rgba(255,69,0, 0.4);
+}
 
 /* from Bulma */
 .icon {
@@ -265,13 +281,13 @@ a.category-badge > span.badge:hover {
     }
 }
 
-@media (max-width: 1260px){
+@media (min-width: 1218px){
     .donate-banner{
-        top: 20%;
+        top: 30%;
     }
 }
 
-@media (max-width: 954px){
+@media (max-width: 1200px){
     .donate-banner{
         top: 20%;
     }
