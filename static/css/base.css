@@ -141,21 +141,21 @@ header{
 font-family: 'Montserrat';
 font-weight: 600;
 font-size: 2rem;
-color: ;
+color: #333333;
 }
 
 .sub-headings{
     font-family: 'Montserrat';
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1.5rem;
-    color: #f0ffff;
+    color: #153a57;
 }
 
 .info-text{
     font-weight: 400;
     font-size: 1.3rem;
     color: #002147;
-    text-shadow: 2px 2px #e3e0cf;
+    text-shadow: 1px 1px #9fa8a3;
 }
 
 /* cards */
@@ -179,6 +179,10 @@ color: ;
 
 .card img{
     max-height: 277px;
+}
+
+.border-right{
+    border-right: solid 1px #9fa8a3;
 }
 
 /* from Bulma */

@@ -24,3 +24,9 @@ class Animal(models.Model):
 
     def __str__(self):
         return self.name
+
+    
+class ContactModel(models.Model):
+    name = models.TextField(max_length=300)
+    email = models.EmailField(max_length=254)
+    question = models.TextField(max_length=400)
