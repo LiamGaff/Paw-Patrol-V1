@@ -60,7 +60,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'paw_patrol.urls'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {

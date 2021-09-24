@@ -76,13 +76,11 @@
                             <h3>Address:</h3>
                                 <p>Test raod, test <br> test test</p>
                         </div>
-                        <div class="col-12 col-md-6 text-center">
+                        <div class="col-12 col-md-6 text-center mb-2">
+                            {% load crispy_forms_tags %}
                             <form action="" method="post">
                                 {% csrf_token %}
-                                {% for field in form %}
-                                    {{ field | as_crispy_field }}
-                                    {{ field }}
-                                {% endfor %}
+                                {% crispy contact_form %}
                                 <button class="btn btn-black rounded-0 text-uppercase float-right">Submit</button>
                             </form>
                         </div>

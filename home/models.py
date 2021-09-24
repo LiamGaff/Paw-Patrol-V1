@@ -27,6 +27,6 @@ class Animal(models.Model):
 
     
 class ContactModel(models.Model):
-    name = models.TextField(max_length=300)
+    name = models.CharField(max_length=30)
     email = models.EmailField(max_length=254)
     question = models.TextField(max_length=400)

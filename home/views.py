@@ -17,12 +17,12 @@ def index(request):
             return redirect(reverse('home'))
             
     else:
-        form = ContactForm()
+        contact_form = ContactForm()
 
     template = 'home/index.html'
     context = {
         "volunteers": volunteers, 
-        'form': form,
+        'contact_form': contact_form,
     }
 
     return render(request, template, context)
