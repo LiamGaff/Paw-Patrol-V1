@@ -24,7 +24,7 @@ class ContactForm(forms.ModelForm):
             'question': 'How can we help?'
         }
 
-        self.fields['name'].widget.attrs['autofocus'] = True
+        # self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder

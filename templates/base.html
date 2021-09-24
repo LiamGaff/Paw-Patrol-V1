@@ -47,7 +47,7 @@
       <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-5 my-auto py-lg-0 text-center text-lg-right">
           <div id="logo">
-            <a href="" class="nav-link main-logo-link">
+            <a href="{% url 'home' %}" class="nav-link main-logo-link">
                 <h2 class="logo-font my-1"><strong>Paw</strong> Patrol</h2>
                 <i class="fas fa-paw paw-logo my-1"></i>
             </a>
@@ -56,7 +56,7 @@
         <div class="col-12 col-lg-7 my-auto py-1 py-lg-0">
             <ul class="list-inline list-unstyled text-center text-lg-right my-0 float-right">
               <li class="list-inline-item">
-                <a class="text-info font-weight-bold text-black nav-link" href="">
+                <a class="text-info font-weight-bold text-black nav-link" href="{% url 'home' %}">
                     <div class="text-center">
                         <p class="btn my-0 nav-text">
                           Home
@@ -82,8 +82,8 @@
                     </div>
                 </a>
               </li>
-              <li class="list-inline-item dropdown">
-                  <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li class="list-inline-item">
+                  <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle ="dropdown" aria-haspopup="true" aria-expanded="false">
                       <div class="text-center">
                           <p class="btn my-0 nav-text">My Account</p>
                       </div>
@@ -97,7 +97,7 @@
                   </div>
               </li>
               <li class="list-inline-item">
-                <a class="text-info font-weight-bold text-black nav-link" href="">
+                <a class="text-info font-weight-bold text-black nav-link" href="{% url 'donations' %}">
                     <div class="text-center">
                         <button class="btn nav-text my-0 rounded-pill donate-nav btn-lg">
                           Donate
@@ -110,9 +110,10 @@
       </div>
       <div class="row g-0">
           <nav class="navbar navbar-expand-lg navbar-light w-100 col-6">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+              {% include 'includes/mobile-top-header.html' %}
           </nav>
       </div>
     </div>
