@@ -171,10 +171,9 @@ color: #333333;
 
 .card-bg{
     border: 2px solid #9fa8a3;
-    padding: 2rem 6rem 2rem 6rem;
+    padding: 1rem 3rem 1rem 3rem;
     background-color: #e3e0cf;
     box-shadow: 6px 10px #9fa8a3;
-    width: 90%;
 }
 
 .card img{

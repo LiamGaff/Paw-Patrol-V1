@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'donation/css/donate.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div id="box">
+		<div class="success-img"></div>
+		<h4>Thank you for your contribution of ${{amount}}!</h4>
+		<p></p>
+		<hr>
+		<a class="myButton" href="{% url 'donate' %}">&#x2190;Back to donation page</a>
+	</div>
+
+{% endblock content %}
