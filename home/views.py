@@ -10,9 +10,9 @@ def index(request):
 
     volunteers = Volunteer.objects.all()
     if request.method == "POST":
-        form = ContactForm()
-        if form.is_valid():
-            message = form.save()
+        contact_form = ContactForm()
+        if contact_form.is_valid():
+            message = contact_form.save()
             messages.success(request, 'Your quwstion has been noted and someone will be in contact soon. Thankyou!')
             return redirect(reverse('home'))
             

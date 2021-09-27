@@ -33,6 +33,84 @@ background-color: #fefde5 !important;
 /* ........................................ Success page */
 
 .success-img{
-    background-image: url('/media/check.png;');
+    background: url('/media/check.png') center no-repeat;
     background-size: contain;
+    height: 500px;
+}
+
+.bg-red{
+    background-color: #fa755a;
+}
+
+.myButton {
+    background-color:#72cca7;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Verdana;
+    font-size:17px;
+    padding:10px;
+    width:100%;
+    border-radius: 0;
+    text-decoration:none;
+    text-align: center;
+    transition: .3s;
+}
+.myButton:hover {
+    opacity: .6;
+}
+
+#box{
+    max-width: 700px;
+    max-height: 500px;
+    margin:0 auto;
+    margin-top: 100px;
+    padding:30px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 1px 3px 0 #dce0e6;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+/* ........................................ Donate form */
+
+/* Custom radio buttons designed with the help of crosby roads youtube  */
+
+.value-wrapper{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.hidebx{
+    display: none;
+}
+
+form .value-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    
+}
+
+.radio-btn{
+    text-align: center;
+    box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.35);
+    padding: 10px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+    background-color: #c5d5cb;
+    width: 10rem;
+    border-radius: 15px;
+}
+
+.display-box .d-value{
+    font-weight: 600;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+input[type=radio]:checked + .radio-btn{
+    border-color: black;
 }
