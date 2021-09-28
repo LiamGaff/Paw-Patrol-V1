@@ -29,9 +29,8 @@ def messageForm(request):
         }
         contact_form = ContactForm(form_data)
         if contact_form.is_valid():
-            message = contact_form.save()
-            messages.success(request, 'Your quwstion has been noted and someone will be in contact soon. Thankyou!')
+            query = contact_form.save()
+            messages.success(request, 'Your question has been noted and someone will be in contact soon. Thankyou!')
             return redirect(reverse('home'))
-      
     else:
         contact_form = ContactForm()

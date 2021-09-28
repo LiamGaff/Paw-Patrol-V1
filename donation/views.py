@@ -24,7 +24,7 @@ def donate(request):
 def charge(request):
     if request.method == 'POST':
         try:
-            print('Data:', request.POST )
+            print('Data:', request.POST)
 
             amount = int(request.POST['donate-value'])
 
@@ -50,7 +50,6 @@ def charge(request):
             print(f'Other error occurred: {err}')
             messages.error(request, 'An error occurred in processing your request. Please try again later.')
             return render(request, "donation/donate.html")
-        
 
     return redirect(reverse('success', args=[amount]))
 

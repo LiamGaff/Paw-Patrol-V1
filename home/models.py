@@ -25,7 +25,7 @@ class Animal(models.Model):
     def __str__(self):
         return self.name
 
-  
+ 
 class ContactModel(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=254)

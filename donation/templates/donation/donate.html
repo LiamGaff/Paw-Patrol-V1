@@ -22,6 +22,7 @@
                 </P>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg mb-3">
+            {% if request.user.is_authenticated %}
                 {% load crispy_forms_tags %}
                 <form action="{% url 'charge' %}" method="POST" id="payment-form">
                     {% csrf_token %}
@@ -77,7 +78,11 @@
                     <input  class="btn pay-btn mt-3" type="submit" value="Submit Payment" name="Donate">
                 </form>
             </div>
-            <a href="{% url 'account_signup' %}"><button>signup</button></a>
+            {% else %}
+            <div class="row justify-content-center ">
+                <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply <a href="{% url 'account_login' %}">login</a> to make a donation.</h4>
+            </div>
+            {% endif %}
         </div>
 
         <div class="row mb-3 mt-1">
