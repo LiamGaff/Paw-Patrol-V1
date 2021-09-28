@@ -57,8 +57,8 @@ def charge(request):
 
 def successMsg(request, args):
         
-        amount = args
-        return render(request, "donation/success.html", {'amount':amount})
+    amount = args
+    return render(request, "donation/success.html", {'amount':amount})
 
 
 # def signUp(request):

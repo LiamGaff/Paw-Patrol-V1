@@ -77,6 +77,12 @@ background-color: #fefde5 !important;
 
 /* Custom radio buttons designed with the help of crosby roads youtube  */
 
+.pay-btn{
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #c5d5cb;
+}
+
 .value-wrapper{
     width: 100%;
     margin-bottom: 1rem;
@@ -113,4 +119,12 @@ form .value-wrapper{
 
 input[type=radio]:checked + .radio-btn{
     border-color: black;
+}
+
+
+
+
+@media (max-width: 785px){ 
+    .radio-btn{
+        width: 5rem;
 }

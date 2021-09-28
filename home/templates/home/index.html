@@ -78,10 +78,9 @@
                         </div>
                         <div class="col-12 col-md-6 text-center mb-2">
                             {% load crispy_forms_tags %}
-                            <form action="" method="post">
+                            <form action="{% url 'messageForm' %}" method="post">
                                 {% csrf_token %}
                                 {% crispy contact_form %}
-                                <button class="btn btn-black rounded-0 text-uppercase float-right">Submit</button>
                             </form>
                         </div>
                 </div>
