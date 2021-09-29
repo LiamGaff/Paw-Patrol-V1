@@ -10,6 +10,8 @@ def index(request):
 
     volunteers = Volunteer.objects.all()
     contact_form = ContactForm()
+    host = request.get_host()
+    print(host)
 
     template = 'home/index.html'
     context = {
