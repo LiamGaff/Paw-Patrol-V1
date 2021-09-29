@@ -13,8 +13,14 @@
 </li>
 {% endfor %}
 {% endif %}
-<li>
-  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
-     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
-</li>
+<div class="row">
+  <div class="card w-100 p-0">
+    <div class="card-body">
+      <h5 class="card-title sub-headings">Log in through Facebook</h5>
+      <p class="card-text info-text">You can use your Facebook book account to quickly signup and login</p>
+      <a title="{{provider.name}}" id="fb-btn" class=" btn btn-primary socialaccount_provider {{provider.id}}" 
+       href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><i class="fab fa-facebook-square"></i>{{provider.name}}</a>
+    </div>
+  </div>
+</div>
 {% endfor %}

@@ -395,6 +395,16 @@ a.category-badge > span.badge:hover {
 	color: #17a2b8; /* text-info */
 }
 
+#fb-btn{
+background-color: #fff;
+width: 10rem;
+color: blue;
+}
+
+#fb-btn:hover{
+    background-color: blue;
+    color: #fff;
+    }
 
 /* -------------------------------- Media Queries */
 
