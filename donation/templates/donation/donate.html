@@ -16,11 +16,12 @@
         </div>
 
         <div class="row justify-content-around">
-            <div class="col-12 col-sm-4 col-md-4col-lg-4 mt-5 mb-3">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-5 mb-3">
                 <P class="info-text text-center">You can make a one off donation using the form provided. If you have not already set up an account you will be asked to do so before you donate.
                     This allows you to keep track of and manage your ongoing payments. This can all be done from your <a href="">profile page</a>.
                 </P>
             </div>
+            <span class="border-arrow right d-sm-none d-md-block"></span>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg mb-3">
             {% if request.user.is_authenticated %}
                 {% load crispy_forms_tags %}
