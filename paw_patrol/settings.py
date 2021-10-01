@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'home',
     'donation',
+    'profiles',
 
     # 3rd party
     'crispy_forms',

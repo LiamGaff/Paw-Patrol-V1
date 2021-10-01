@@ -1,12 +1,14 @@
 from django.contrib import admin
-from .models import Account
+from .models import Donations
 
 
-class AccountAdmin(admin.ModelAdmin):
+class DonationsAdmin(admin.ModelAdmin):
     fields = (
         "name",
         'email',
-        'password',
+        'amount',
     )
+    readonly_fields = ('date',)
 
-admin.site.register(Account, AccountAdmin)
+
+admin.site.register(Donations, DonationsAdmin)

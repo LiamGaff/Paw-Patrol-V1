@@ -1,11 +1,12 @@
 import os
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from datetime import date
 from requests.exceptions import HTTPError
-from django.http import JsonResponse
 from django.contrib import messages
 
-from .forms import SignupForm
+from .models import Donations
+from profiles.models import UserProfile
 
 if os.path.exists("env.py"):
     import env
@@ -29,8 +30,8 @@ def charge(request):
             amount = int(request.POST['donate-value'])
 
             customer = stripe.Customer.create(
-                email=request.POST['email'],
-                name=request.POST['name'],
+                name=request.user.get_username(),
+                email=request.user.email,
                 source=request.POST['stripeToken']
                 )
 
@@ -40,6 +41,10 @@ def charge(request):
                 currency='eur',
                 description="Donation"
             )
+
+            donation = Donations(name=request.user.get_username(),
+                                 email=request.user.email, amount=amount*100)
+            donation.save()
 
         except HTTPError as http_err:
             print(f'HTTP error occurred: {http_err}')
@@ -55,20 +60,6 @@ def charge(request):
 
 
 def successMsg(request, args):
-        
+      
     amount = args
-    return render(request, "donation/success.html", {'amount':amount})
-
-
-# def signUp(request):
-#     if request.method == 'POST':
-#         try:
-#             if signup_form.is_valid():
-#                 account = signup_form.save()
-#                 messages.success(request, 'Your account has been created')
-            
-#         except:
-#             contact_form = ContactForm()
-#     else:
-#         signup_form
-
+    return render(request, "donation/success.html", {'amount': amount})
