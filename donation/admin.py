@@ -6,9 +6,14 @@ class DonationsAdmin(admin.ModelAdmin):
     fields = (
         "name",
         'email',
+        'date',
         'amount',
     )
-    readonly_fields = ('date',)
+
+    readonly_fields = (
+        'date',
+        'amount',
+    )
 
 
 admin.site.register(Donations, DonationsAdmin)

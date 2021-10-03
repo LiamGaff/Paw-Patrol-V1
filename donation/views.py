@@ -1,7 +1,6 @@
 import os
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from datetime import date
 from requests.exceptions import HTTPError
 from django.contrib import messages
 
