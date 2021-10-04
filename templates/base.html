@@ -90,10 +90,13 @@
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                     <a href="" class="dropdown-item">Page Management</a>
-                    <a href="" class="dropdown-item">My Profile</a>
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% if request.user.is_authenticated %}
+                      <a href="" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
                 </div>
             </li>
               <li class="list-inline-item">
@@ -121,7 +124,7 @@
       <div class="row g-0 d-flex flex-row-reverse">
         <div class="col-12 col-md-6 col-lg-6 p-2 my-auto py-1 py-lg-0">
           <div class="text-center text-right my-0 float-right">
-            <h2 class="donate-banner-h"><strong>Donate today!</strong></h2>
+            <h2 class="donate-banner-h"><strong>Donate today !</strong></h2>
             <p class="donate-banner-p">Any amount goes a long way to helping those in need.</p>
           </div>
         </div>
@@ -136,13 +139,6 @@
         </div>
       </div>
     </div>
-    {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% include 'includes/toasts/toast_success.html' %}
-            {% endfor %}
-        </div>
-    {% endif %}
     </header>
     {% if messages %}
         <div class="message-container">

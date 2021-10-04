@@ -10,7 +10,7 @@ from donation.models import Donations
 def profile(request):
     """ Return profile page """
     profile = get_object_or_404(UserProfile, user=request.user)
-    donations = Donations.objects.filter(email=request.user)
+    donations = Donations.objects.filter(email=request.user.email)
 
     context = {
         'profile': profile,

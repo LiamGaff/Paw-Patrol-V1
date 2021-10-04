@@ -130,12 +130,25 @@ input[type=radio]:checked + .radio-btn{
     display: inline-block;
     padding: 0;
     margin: 0;
-    margin-top: 6em;
+    margin-top: 6rem;
 
     border: 30px solid transparent;
     border-left-color: black;
 }
 
+
+.border-arrow-down{ 
+    background-color: transparent;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-top: 2rem;
+
+    border: 30px solid transparent;
+    border-top-color: black;
+}
 
 
 /* ........................................ Media queries */

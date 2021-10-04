@@ -42,7 +42,7 @@ def charge(request):
             )
 
             donation = Donations(name=request.user.get_username(),
-                                 email=request.user.email, amount=amount*100)
+                                 email=request.user.email, amount=amount)
             donation.save()
 
         except HTTPError as http_err:
