@@ -8,11 +8,13 @@ class DonationsAdmin(admin.ModelAdmin):
         'email',
         'date',
         'amount',
+        'donation_id'
     )
 
     readonly_fields = (
         'date',
         'amount',
+        'donation_id'
     )
 
 
