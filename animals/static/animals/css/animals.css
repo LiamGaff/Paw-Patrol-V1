@@ -1,0 +1,12 @@
+.animals-img{
+    height: 100%;
+    contain: content;
+}
+
+.animal-card{
+    padding: 0;
+}
+
+.rounded{
+    border-radius: 50%;
+}

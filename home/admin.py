@@ -19,6 +19,7 @@ class AnimalAdmin(admin.ModelAdmin):
         'breed',
         'about',
         "image",
+        "id",
     )
 
 
@@ -28,6 +29,7 @@ class ContactModelAdmin(admin.ModelAdmin):
         'email',
         'question',
     )
+
 
 admin.site.register(Volunteer, VolunteerAdmin)
 admin.site.register(Animal, AnimalAdmin)
