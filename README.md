@@ -5,15 +5,43 @@
 ## User Stories
 As a user I would like:
 
+* To be informed upon what the website/charity is about.
+* To be able to easily navigate the webpage.
+* I would like to be able to get in contact with the organisation.
+* I would like to be to ask questons regarding the charity.
+* I would like to be able to sign up for a free account.
+* I would like to have a place where i can view my previous donations.
+* I would like to be able to have readily available options to be directed to the donate page.
+* 
+
 
 
 ## Strategy
+This web page was designd as a charity page for a ficitional charity(the idea is still usefull). The page should be informative and easily navigated. All the features to be implemented are to inform the user of the value of donating to the charity and make donating as easy as possible.
 
 ## Scope
+The user needs had to be meet as this would encourage the users to make a donation. Being able to access the doantion page from any point of the webpage was very importnant. I wanted the to allow no dealy between the user deciding to make a donation and then doing so. Currently you have to sign up to make a donation but I would like to be able to remove this if your only making a one time donation. Signing up and loging in are all done very easily though.
 
 ## Structure
 
+### Home
+
+
+### Donate
+
+
+### Animals
+
+
+### Profile
+
+
+### Signup/Login/Logout
+
+
+
 ## Skeleton
+The design of the webpage was first and foremost about the animals. Thats why the header image displays two rather qute looking animals once you open the webpage. I done some research on color schemes to figure out how to make the webpage look serious but yet fun and inviting. The users should know that it is a serious cause but also when it comes to the animals you want them to feel comferted by the idea of the organisation, not scared. That's why these colours and fonts were chosen and they will be discussed forther in the Design section below.
 
 ## Design
 **Wire Frames**
@@ -25,11 +53,29 @@ As a user I would like:
 
 **Colors**
 
+* The Background colour () I found while researching web page colour scemes. I felt it it mde the webpage look very professional and also very inviting. The soft soothing green colour I found to be relaxing for users and in turn make them feel safe and trusting of this charity organisation.
+
 **typography**
- The rest of the web page either 'Oswald', sans-serif or 'Lato', sans-serif were used as the paired nicely with the Lobster and made all the text very visible.
+ 
 
 # Features
 ## Existing Features
+
+* A Navbar to which contains links to each page aswell ass a hihlighted donate button which will direct you to the donate page.
+
+* A contact form for directing questions the charity organisation straigth from the home page.
+
+* A payment section where users cn select an amount to donate and then pay with card trhough a stripe payment system.
+
+* It is possible to Signup, Login and Logout all from the page management link on the navigation menue. All these operations are done with allauth.
+
+* Donate buttons found through out the page which will direct you straight to the donation page. 
+
+* Your profile page also contains payment section for making donations.
+
+* A donation history section where all your previous donations are saved with the date, amount and donation ID.
+
+* You can change yoour password from your profile page. This is done throuh allauth.
 
 
 ## Features Still to Be Implemented
@@ -68,6 +114,9 @@ As a user I would like:
 
 # Database
 
+Production Database: PostgresSQL
+
+Development Database: SQLite3
 
 
 # Testing

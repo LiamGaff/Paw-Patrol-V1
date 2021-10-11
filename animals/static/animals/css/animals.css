@@ -1,12 +1,34 @@
 .animals-img{
     height: 100%;
     contain: content;
+    overflow: hidden;
 }
 
 .animal-card{
     padding: 0;
+    border: solid 2px #9fa8a3 !important;
+    box-shadow: 10px 10px #9fa8a3 !important;
 }
 
 .rounded{
-    border-radius: 50%;
+    border-radius: 70%;
+}
+
+.trunc-wrapper{
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    padding: 20px;
+    font-size: 1.3rem;
+    margin: 0;
+    background: white;
+    resize: vertical;
+}
+
+.link-text{
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-bottom: 2rem;
 }

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row top-heading d-felx justify-content-center mt-3 mb-4">
+            <div class="col-12 my-5 text-center mt-0 mb-2">
+                <h2 class="headings"><bold>Animals</bold></h2>
+                <h3>Add Animal</h3>
+                <i class="fas fa-dog headings"></i>
+            </div>
+        </div>
+
+        <div class="row d-felx justify-content-center">
+            <div class="col-12 col-md-6">
+                <form method="POST" action="{% url 'add_animal' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="d-flex justify-content-end mt-3">
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'animals' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Add animal</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}

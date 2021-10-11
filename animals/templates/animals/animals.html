@@ -8,7 +8,7 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <span class="border-arrow-down-index left d-sm-none d-md-block mt-0"></span>
+            <span class="border-arrow-down-index left mt-0"></span>
         </div>
         <div class="row top-heading">
             <div class="col-12 my-5 text-center mt-0 mb-2">
@@ -30,15 +30,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 my-5 text-center mb-2">
+            <div class="col-12 my-5 text-center mb-0">
                 <h2 class="headings">Meet Our Friends</h2>
                 <i class="fas fa-cat headings"></i>
             </div>
         </div>
+        {% if request.user.is_superuser %}
+            <div class="row d-flex justify-content-center link-h">
+                <div class="col-4 my-5 text-center mb-0">
+                    <a href="{% url 'add_animal' %}">
+                        <p class="link-text">
+                            Add new animal
+                        </p>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
         {% for animal in animals %}
             {% if forloop.counter|divisibleby:2 %}
-                <div class="row d-flex justify-content-center rounded">
-                    <div class="col-10 card mb-4 animal-card">
+                <div class="row d-flex justify-content-start rounded ms-5">
+                    <div class="col-11 col-md-10 card mb-4 animal-card">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 {% if animal.image %}
@@ -53,23 +64,32 @@
                                 <p class="card-text info-text">Type: {{ animal.type }}</p>
                                 <p class="card-text info-text">Breed: {{ animal.breed }}</p>
                                 <p class="card-text info-text"> About:<br> {{ animal.about }}</p>
-                                <p class="card-text"><small> <b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b></small></p>
+                                <p class="card-text"><small> <b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
+                                {% if request.user.is_superuser %}
+                                    /<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="">Remove</a> {{ animal.friendly_name }}
+                                {% endif %}
+                                </small></p>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             {% else %}
-                <div class="row d-flex justify-content-center">
-                    <div class="col-10 card mb-4 animal-card">
+                <div class="row d-flex justify-content-end rounded me-5">
+                    <div class="col-11 col-md-10 card mb-4 animal-card">
                         <div class="row g-0">
                             <div class="col-md-8">
                                 <div class="card-body">
                                 <h5 class="card-title sub-headings">{{ animal.friendly_name }}</h5>
                                 <p class="card-text info-text">Type:{{ animal.type }}</p>
                                 <p class="card-text info-text">Breed: {{ animal.breed }}</p>
-                                <p class="card-text info-text"> About:<br> {{ animal.about }}</p>
-                                <p class="card-text"><small><b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b></small></p>
+                                <p class="card-text info-text "> About:<br> {{ animal.about }}</p>
+                                <p class="card-text"><small><b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="">Remove</a> {{ animal.friendly_name }}
+                                {% endif %}
+                                </small></p>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -85,36 +105,4 @@
             {% endif %}
         {% endfor %}
     </div>
-    <footer class="border-top container-fluid">
-        <div class="row m-0">
-            <div class="col-4">
-                <p class=" footer-text text-center mt-2 mb-1">Adress & pawP@testmail.com</p>
-            </div>
-            <div class="col-4">
-                <p class="footer-text text-center mt-2 mb-1">Copyright © PawPatrol 2020</p>
-            </div>
-            <div class="col-4">
-                <ul class="list-inline social-links text-center mt-2 mb-1">
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                            <span class="sr-only">Youtube</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="">
-                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                            <span class="sr-only">Facebook</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
 {% endblock %}
