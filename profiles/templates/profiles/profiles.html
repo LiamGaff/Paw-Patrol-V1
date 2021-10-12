@@ -8,6 +8,7 @@
 {% block content %}
 
     <div class="container-fluid">
+        
         <div class="row mb-3">
             <div class="col-12 my-5 text-center">
                 <h2 class="headings"><bold>Profile</bold></h2>
@@ -15,12 +16,11 @@
             </div>
         </div>
 
-        <hr>
-
         <div class="row d-flex justify-content-around">
             <div class="col-12 col-sm-3 col-md-3 col-lg-3">
                     <h3 class="sub-headings">Username:</h3><p class="info-text">{{ user.username }}</p>
                     <h3 class="sub-headings">Email:</h3><p class="info-text">{{ user.email }}</p>
+                    <h3 class="sub-headings">Password:</h3><p class="info-text">******** <a href="{% url 'account_change_password' %}">Change</a></p>
             </div>
 
             <div class="col-12 col-sm-6 col-md-6 col-lg-5">
@@ -46,6 +46,9 @@
                 </table>
             </div>
         </div>
+
+        <hr class="dotted-sml center-align">
+
         <div class="row d-flex justify-content-center mt-4 mb-0">
             <div class="col-8 text-center">
                 <p class="info-text">
@@ -54,64 +57,64 @@
                 </p>
             </div>
         </div>
-            <div class="row d-flex justify-content-center">
-                <span class="border-arrow-down left d-sm-none d-md-block"></span>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-12 col-sm-8 col-md-8 col-lg-8 card-bg mb-3">
-                {% if request.user.is_authenticated %}
-                    {% load crispy_forms_tags %}
-                    <form action="{% url 'create-payment-intent' %}" method="POST" id="payment-form">
-                        {% csrf_token %}
-                            <div class="form-field-12">
-                        <label class="info-text" for="amount">Choose Amount:</label>
-                        <br>
-                        <br>
-                        <div class="col value-wrapper">
-                            <input class="hidebx" type="radio" name="donate-value" id="1" value="10">
-                            <label for="1" class="radio-btn col-6">
-                                <div class="display-box">
-                                    <div class="d-value">€10</div>
-                                </div>
-                            </label>
-                            <input class="hidebx" type="radio" name="donate-value" id="2" value="100">
-                            <label for="2" class="radio-btn">
-                                <div class="display-box">
-                                    <div class="d-value">€20</div>
-                                </div>
-                            </label>
-                            <input class="hidebx" type="radio" name="donate-value" id="3" value="50">
-                            <label for="3" class="radio-btn">
-                                <div class="display-box">
-                                    <div class="d-value">€50</div>
-                                </div>
-                            </label>
-                            <input class="hidebx" type="radio" name="donate-value" id="4" value="100">
-                            <label for="4" class="radio-btn">
-                                <div class="display-box">
-                                    <div class="d-value">€100</div>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div class="form-row mt-3">
-                            <label for="card-element" class="info-text">
-                                Credit or debit card
-                            </label>
-                            <div id="card-element" class="mt-3">
-                                <!-- stripe element -->
+        <div class="row d-flex justify-content-center">
+            <span class="border-arrow-down left d-sm-none d-md-block"></span>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 card-bg mb-3">
+            {% if request.user.is_authenticated %}
+                {% load crispy_forms_tags %}
+                <form action="{% url 'create-payment-intent' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                        <div class="form-field-12">
+                    <label class="info-text" for="amount">Choose Amount:</label>
+                    <br>
+                    <br>
+                    <div class="col value-wrapper">
+                        <input class="hidebx" type="radio" name="donate-value" id="1" value="10">
+                        <label for="1" class="radio-btn col-6">
+                            <div class="display-box">
+                                <div class="d-value">€10</div>
                             </div>
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-                        <input  class="btn pay-btn mt-3" type="submit" value="Submit Payment" name="Donate">
-                    </form>
-                    {% else %}
-                    <div class="row justify-content-center ">
-                        <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply <a href="{% url 'account_login' %}">login</a> to make a donation.</h4>
+                        </label>
+                        <input class="hidebx" type="radio" name="donate-value" id="2" value="100">
+                        <label for="2" class="radio-btn">
+                            <div class="display-box">
+                                <div class="d-value">€20</div>
+                            </div>
+                        </label>
+                        <input class="hidebx" type="radio" name="donate-value" id="3" value="50">
+                        <label for="3" class="radio-btn">
+                            <div class="display-box">
+                                <div class="d-value">€50</div>
+                            </div>
+                        </label>
+                        <input class="hidebx" type="radio" name="donate-value" id="4" value="100">
+                        <label for="4" class="radio-btn">
+                            <div class="display-box">
+                                <div class="d-value">€100</div>
+                            </div>
+                        </label>
                     </div>
-                    {% endif %}
+
+                    <div class="form-row mt-3">
+                        <label for="card-element" class="info-text">
+                            Credit or debit card
+                        </label>
+                        <div id="card-element" class="mt-3">
+                            <!-- stripe element -->
+                        </div>
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+                    <input  class="btn pay-btn mt-3" type="submit" value="Submit Payment" name="Donate">
+                </form>
+                {% else %}
+                <div class="row justify-content-center ">
+                    <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply <a href="{% url 'account_login' %}">login</a> to make a donation.</h4>
                 </div>
+                {% endif %}
             </div>
+        </div>
     </div>
 {% endblock %}
 
