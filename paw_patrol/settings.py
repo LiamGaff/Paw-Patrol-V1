@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'donation',
     'profiles',
     'animals',
+    'blog',
 
     # 3rd party
     'crispy_forms',

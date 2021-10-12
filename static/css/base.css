@@ -207,9 +207,9 @@ text-shadow:
 }
 
 .info-text{
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1.3rem;
-    color: #707070;
+    color: #00203fff;
     text-shadow: 1px 1px #9fa8a3;
 }
 

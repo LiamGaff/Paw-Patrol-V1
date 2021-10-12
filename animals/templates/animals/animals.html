@@ -53,9 +53,9 @@
                         <div class="row g-0">
                             <div class="col-md-4">
                                 {% if animal.image %}
-                                        <img src="{{ animal.image.url }}" class="card-img-top animals-img" alt="{{ animal.name }}">
+                                        <img src="{{ animal.image.url }}" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
                                     {% else %}
-                                        <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img" alt="{{ animal.name }}">
+                                        <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
                                     {% endif %}
                             </div>
                             <div class="col-md-8">

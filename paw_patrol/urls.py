@@ -25,4 +25,5 @@ urlpatterns = [
     path('donate/', include('donation.urls')),
     path('profiles/', include('profiles.urls')),
     path('animals/', include('animals.urls')),
+    path('blog/', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

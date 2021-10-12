@@ -2,12 +2,14 @@
     height: 100%;
     contain: content;
     overflow: hidden;
+    border-radius: 80%;
 }
 
 .animal-card{
     padding: 0;
     border: solid 2px #9fa8a3 !important;
-    box-shadow: 10px 10px #9fa8a3 !important;
+    box-shadow: 0 5px #9fa8a3 !important;
+    background-color: #9fa8a3;
 }
 
 .rounded{
