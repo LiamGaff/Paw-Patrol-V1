@@ -14,18 +14,15 @@
     border-radius: 70%;
 }
 
-.trunc-wrapper{
-    width: 200px;
-    white-space: nowrap;
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
     overflow: hidden;
+
     text-overflow: ellipsis;
-    
-    padding: 20px;
-    font-size: 1.3rem;
-    margin: 0;
-    background: white;
     resize: vertical;
-}
+  }
 
 .link-text{
     font-size: 1.5rem;

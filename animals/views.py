@@ -43,6 +43,17 @@ def add_animal(request):
     return render(request, template, context)
 
 
+def delete_animal(request, animal_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Only admin users can make this change.')
+        return redirect(reverse('animals'))
+    
+    animal = get_object_or_404(Animal, pk=animal_id)
+    animal.delete()
+    messages.success(request, 'Animal has been removed')
+    return redirect(reverse('animals'))
+
+
 def edit_animal(request, animal_id):
     if not request.user.is_superuser:
         messages.error(request, 'Only admin users can make this change.')

@@ -63,10 +63,10 @@
                                 <h5 class="card-title sub-headings">{{ animal.friendly_name }}</h5>
                                 <p class="card-text info-text">Type: {{ animal.type }}</p>
                                 <p class="card-text info-text">Breed: {{ animal.breed }}</p>
-                                <p class="card-text info-text"> About:<br> {{ animal.about }}</p>
+                                <p class="card-text info-text line-clamp"> About:<br> {{ animal.about }}</p>
                                 <p class="card-text"><small> <b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
                                 {% if request.user.is_superuser %}
-                                    /<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="">Remove</a> {{ animal.friendly_name }}
+                                    (<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="{% url 'delete_animal' animal.id %}">Remove</a> {{ animal.friendly_name }})
                                 {% endif %}
                                 </small></p>
 
@@ -84,10 +84,10 @@
                                 <h5 class="card-title sub-headings">{{ animal.friendly_name }}</h5>
                                 <p class="card-text info-text">Type:{{ animal.type }}</p>
                                 <p class="card-text info-text">Breed: {{ animal.breed }}</p>
-                                <p class="card-text info-text "> About:<br> {{ animal.about }}</p>
+                                <p class="card-text info-text line-clamp"> About:<br> {{ animal.about }}</p>
                                 <p class="card-text"><small><b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="">Remove</a> {{ animal.friendly_name }}
+                                    (<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="{% url 'delete_animal' animal.id %}">Remove</a> {{ animal.friendly_name }})
                                 {% endif %}
                                 </small></p>
                                 </div>
