@@ -9,81 +9,86 @@
 
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <span class="border-arrow-down-index left mt-0"></span>
-        </div>
-        <div class="row top-heading mb-5">
-            <div class="col-12 mb-3 text-center">
-                <h2 class="headings"><bold>Donate</bold></h2>
-                <i class="fas fa-dog headings"></i>
+            <div class="row d-flex justify-content-center">
+                <span class="border-arrow-down-index left mt-0"></span>
             </div>
+            <div class="col-11 donate-bg">
+            <div class="row top-heading mb-5">
+                <div class="col-12 mb-3 text-center">
+                    <h2 class="headings"><bold>Donate</bold></h2>
+                    <i class="fas fa-dog headings"></i>
+                </div>
+            </div>
+
+            <div class="row justify-content-around mb-5">
+                <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-5 mb-3">
+                    <P class="info-text text-center">You can make a one off donation using the form provided. If you have not already set up an account you will be asked to do so before you donate.
+                        This allows you to keep track of and manage your ongoing payments. This can all be done from your <a href="">profile page</a>.
+                    </P>
+                </div>
+                <span class="border-arrow right d-sm-none d-md-block d-none d-sm-block"></span>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg mb-3">
+                    {% if request.user.is_authenticated %}
+                    <form action="{% url 'create-payment-intent' %}" method="POST" id="payment-form">
+                        {% csrf_token %}
+                            <div class="form-field-12">
+                            <label class="info-text" for="amount">Choose Amount:</label>
+                            <br>
+                            <br>
+                            <div class="col value-wrapper">
+                                <input class="hidebx" type="radio" name="donate-value" id="1" value="10">
+                                <label for="1" class="radio-btn col-6">
+                                    <div class="display-box">
+                                        <div class="d-value">€10</div>
+                                    </div>
+                                </label>
+                                <input class="hidebx" type="radio" name="donate-value" id="2" value="20">
+                                <label for="2" class="radio-btn">
+                                    <div class="display-box">
+                                        <div class="d-value">€20</div>
+                                    </div>
+                                </label>
+                                <input class="hidebx" type="radio" name="donate-value" id="3" value="50">
+                                <label for="3" class="radio-btn">
+                                    <div class="display-box">
+                                        <div class="d-value">€50</div>
+                                    </div>
+                                </label>
+                                <input class="hidebx" type="radio" name="donate-value" id="4" value="100">
+                                <label for="4" class="radio-btn">
+                                    <div class="display-box">
+                                        <div class="d-value">€100</div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="card-element" class="info-text">
+                                    Credit or debit card
+                                </label>
+                                <div id="card-element" class="mt-3">
+                                    <!-- stripe element -->
+                                </div>
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                        <input  class="btn pay-btn mt-3" type="submit" value="Submit Payment" name="Donate">
+                    </form>
+                </div>
+                {% else %}
+                <div class="row justify-content-center ">
+                    <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply <a href="{% url 'account_login' %}">login</a> to make a donation.</h4>
+                </div>
+                {% endif %} 
+            </div>
+            </div>
+        </div>
         </div>
 
-        <div class="row justify-content-around mb-5">
-            <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-5 mb-3">
-                <P class="info-text text-center">You can make a one off donation using the form provided. If you have not already set up an account you will be asked to do so before you donate.
-                    This allows you to keep track of and manage your ongoing payments. This can all be done from your <a href="">profile page</a>.
-                </P>
-            </div>
-            <span class="border-arrow right d-sm-none d-md-block d-none d-sm-block"></span>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg mb-3">
-                {% if request.user.is_authenticated %}
-                <form action="{% url 'create-payment-intent' %}" method="POST" id="payment-form">
-                    {% csrf_token %}
-                        <div class="form-field-12">
-                        <label class="info-text" for="amount">Choose Amount:</label>
-                        <br>
-                        <br>
-                        <div class="col value-wrapper">
-                            <input class="hidebx" type="radio" name="donate-value" id="1" value="10">
-                            <label for="1" class="radio-btn col-6">
-                                <div class="display-box">
-                                    <div class="d-value">€10</div>
-                                </div>
-                            </label>
-                            <input class="hidebx" type="radio" name="donate-value" id="2" value="20">
-                            <label for="2" class="radio-btn">
-                                <div class="display-box">
-                                    <div class="d-value">€20</div>
-                                </div>
-                            </label>
-                            <input class="hidebx" type="radio" name="donate-value" id="3" value="50">
-                            <label for="3" class="radio-btn">
-                                <div class="display-box">
-                                    <div class="d-value">€50</div>
-                                </div>
-                            </label>
-                            <input class="hidebx" type="radio" name="donate-value" id="4" value="100">
-                            <label for="4" class="radio-btn">
-                                <div class="display-box">
-                                    <div class="d-value">€100</div>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="form-row mt-3">
-                            <label for="card-element" class="info-text">
-                                Credit or debit card
-                            </label>
-                            <div id="card-element" class="mt-3">
-                                <!-- stripe element -->
-                            </div>
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-                    <input  class="btn pay-btn mt-3" type="submit" value="Submit Payment" name="Donate">
-                </form>
-            </div>
-            {% else %}
-            <div class="row justify-content-center ">
-                <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply <a href="{% url 'account_login' %}">login</a> to make a donation.</h4>
-            </div>
-            {% endif %}
-        </div>
         <div class="row mb-0 mt-3 row-heading">
             <div class="col-12 my-5 text-center mb-2">
                 <h2 class="headings"><bold>What your donation means</bold></h2>
                 <i class="fas fa-dog headings"></i>
             </div>
         </div>
-    </div>
     <div class="row justify-content-center">
         <div class="col-4 mb-3">
             <img src="{{ MEDIA_URL }}/media/max_test.jpg" class="donate-img w-100" alt="...">
@@ -103,7 +108,7 @@
         </div>
     </div>
 
-    <hr class="dotted">
+    <hr class="dotted-sml">
     
     <div class="row justify-content-center mt-5">
         <div class="col-4 mb-3">

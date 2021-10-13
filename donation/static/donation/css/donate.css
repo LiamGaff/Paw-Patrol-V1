@@ -150,6 +150,37 @@ input[type=radio]:checked + .radio-btn{
     border-top-color: black;
 }
 
+.donate-bg{
+    background-color: #abbab0;
+    padding: 2rem 2rem 2rem 2rem;
+    box-shadow: 20px 20px 20px 20px;
+}
+
+/* ........................................ about donation section */
+
+.donate-img{
+    border-radius: 50%;
+}
+
+.text-border{
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 1rem 1rem 1rem 1rem;
+    color: #00203fff;
+}
+
+hr.dotted{
+    border-top: 5px dashed black;
+}
+
+hr.dotted-sml{
+    border-top: 5px dashed black;
+    width: 60rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
 
 /* ........................................ Media queries */
 
