@@ -19,7 +19,7 @@ class Animal(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     type = models.CharField(max_length=254)
     breed = models.CharField(max_length=254, null=True, blank=True)
-    about = models.TextField(max_length=150)
+    about = models.TextField(max_length=200)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):

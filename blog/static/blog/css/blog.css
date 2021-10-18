@@ -1,7 +1,84 @@
 body{
-    background-color: transparent;
+    background-color: #1f2833;
+}
+
+p,
+h2,
+h3{
+    color: #66fcf1;
+    font-weight: 600;
+    /* text-shadow:
+    -0.5px -0.5px 0 #000,
+    0.5px -0.5px 0 #000,
+    -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000; */
+}
+
+img{
+    filter: grayscale(50%) brightness(0.8);
+}
+
+a{
+    color: #F2AA4CFF;
+}
+
+a:hover{
+    color: #fff;
 }
 
 .head-post{
-    background-color: rgba(0, 0, 0, 0.733);
+    position: relative;
+    background-color: #101820FF;
+    color: #66fcf1;
+}
+
+.blog-post{
+    background-color: #101820FF;
+}
+
+.author{
+    background-color: #101820FF;
+}
+
+.head-post-badge{
+    right: 20px;
+    position: absolute;
+    top: 20px;
+}
+
+.head-post-badge>a{
+    background-color: #101820FF;
+    display: block;
+    font-size: 0.8rem;
+}
+
+.head-post-badge>a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+.head-post-content{
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+}
+
+.head-post-content img{
+    border: 2px solid #66fcf1
+}
+
+/* #logo{
+background-color: #66fcf1;
+}
+
+.donate-nav{
+    background-color: #66fcf1;
+} */
+
+#logo{
+    background-color: #F2AA4CFF;
+    }
+    
+.donate-nav{
+    background-color: #F2AA4CFF;
 }

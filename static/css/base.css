@@ -18,6 +18,10 @@ header{
     height: 1vh;
 }
 
+img{
+    filter: grayscale(10%) brightness(0.9);
+}
+
 a{
     color: rgba(175,0,0,0.64);
     text-decoration: none;
@@ -45,6 +49,11 @@ a:hover{
     border: solid 2px black;
     color: #f0ffff;
     font-size: 1rem;
+    text-shadow: 
+        -1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .list-inline-item:not(:last-child){
@@ -53,13 +62,13 @@ a:hover{
 
 .logo-font{
     font-family: 'Luckiest Guy', cursive;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #FDF6F6;
     text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
+		-0.5px -0.5px 0 #000,
+		0.5px -0.5px 0 #000,
+		-0.5px 0.5px 0 #000,
+		0.5px 0.5px 0 #000;
 }
 
 .paw-logo{
@@ -274,7 +283,7 @@ footer{
 
 .logo-font {
     text-transform: uppercase;
-    padding: 0.5rem;
+    padding: 0.4rem;
 }
 
 

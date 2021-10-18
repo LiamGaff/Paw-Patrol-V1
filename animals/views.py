@@ -6,8 +6,8 @@ from home.models import Animal
 from .forms import addAnimalForm
 
 
-def animals(request,):
-    """ DIsplay animals from database 
+def animals(request):
+    """ DIsplay animals from database
         and render animals page """
     animals = Animal.objects.all()
 
