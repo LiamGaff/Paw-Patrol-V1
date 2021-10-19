@@ -1,5 +1,5 @@
 from django import forms
-from models import BlogPosts
+from .models import BlogPost
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
@@ -15,19 +15,22 @@ class blogForm(forms.ModelForm):
 
         placeholders = {
             'title': 'Blog title',
-            'author': 'author',
+            'author': 'Author',
             'story': 'Blog content',
             'image': 'Upload image',
         }
 
-        self.fields['name'].widget.attrs['autofocus'] = True
+        self.fields['title'].widget.attrs['autofocus'] = True
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
 
     class Meta:
-        model = BlogPosts()
-        fields = '__all__'
+        model = BlogPost
+        fields = {
+            'title', 'author', 'story', 'image'
+        }
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image',
+                             required=False, widget=CustomClearableFileInput)

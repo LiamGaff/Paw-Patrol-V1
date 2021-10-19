@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class BlogPosts(models.Model):
+class BlogPost(models.Model):
     title = models.CharField(max_length=254)
     author = models.CharField(max_length=254, null=True, blank=True)
     story = models.TextField()

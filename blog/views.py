@@ -1,11 +1,16 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+
 from .forms import blogForm
+from .models import BlogPost
 
 
 def blog(request):
     """ return blog page """
-    return render(request, 'blog/blog.html')
+    # posts = BlogPost.objects.all()
+
+    template = 'blog/blog.html'
+    return render(request, template)
 
 
 def blog_post(request):
@@ -17,7 +22,7 @@ def blog_post(request):
     if request.method == 'POST':
         form = blogForm(request.POST, request.FILES)
         if form.is_valid():
-            post = form.save()
+            form.save()
             messages.success(request, 'Animal has been added')
             return redirect(reverse('blog'))
         else:
@@ -25,7 +30,7 @@ def blog_post(request):
     else:
         form = blogForm()
 
-    template = 'blog/blog_post.html'
+    template = 'blog/blog_form.html'
     context = {
         'form': form,
     }

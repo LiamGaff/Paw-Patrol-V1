@@ -13,7 +13,17 @@
         <i class="fas fa-dog headings"></i>
     </div>
 </div>
-
+{% if request.user.is_superuser %}
+<div class="row d-flex justify-content-center link-h">
+    <div class="col-4 my-5 text-center mb-0">
+        <a href="{% url 'blog_post' %}">
+            <p class="link-text">
+                Add new post
+            </p>
+        </a>
+    </div>
+</div>
+{% endif %}
 <section class="head-section py-4 container-fluid">
         <div class="row">
             <div class="col-lg-8">
