@@ -67,6 +67,21 @@ a:hover{
     border: 2px solid #66fcf1
 }
 
+.sub-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sub-post{
+    position: relative;
+    background-color: #101820FF;
+    color: #66fcf1;
+    height: 20rem;
+}
+
+/* ................................. Extra css */
+
 /* #logo{
 background-color: #66fcf1;
 }
