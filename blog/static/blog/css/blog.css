@@ -82,3 +82,8 @@ background-color: #66fcf1;
 .donate-nav{
     background-color: #F2AA4CFF;
 }
+
+.navbar-toggler {
+    border: 2px solid black;
+    background-color: #F2AA4CFF;
+}

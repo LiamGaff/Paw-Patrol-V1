@@ -7,11 +7,16 @@
 
 .animal-card{
     padding: 0;
-    border: solid 2px #9fa8a3 !important;
-    box-shadow: 0 5px #9fa8a3 !important;
+    border: solid 2px #1f2833 !important;
+    box-shadow: 0 7px #1f2833 !important;
     background-color: #1f2833;
     width: 70%;
     height: 70%;
+    max-height: 30rem;
+}
+
+.card-body{
+    max-height: 30rem;
 }
 
 .rounded{

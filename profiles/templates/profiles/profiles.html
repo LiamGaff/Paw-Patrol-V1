@@ -64,7 +64,7 @@
             <div class="col-12 col-sm-8 col-md-8 col-lg-8 card-bg mb-3">
             {% if request.user.is_authenticated %}
                 {% load crispy_forms_tags %}
-                <form action="{% url 'create-payment-intent' %}" method="POST" id="payment-form">
+                <form action="{% url 'create_payment_intent' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                         <div class="form-field-12">
                     <label class="info-text" for="amount">Choose Amount:</label>

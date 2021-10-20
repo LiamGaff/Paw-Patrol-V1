@@ -6,11 +6,20 @@ from .models import BlogPost
 
 
 def blog(request):
-    """ return blog page """
-    # posts = BlogPost.objects.all()
-
+    """ return blog page with posts and featured post"""
+    posts = BlogPost.objects.all()
+    recent_posts = BlogPost.objects.filter(published=True).order_by('-id')[0:2]
+    if BlogPost.objects.filter(id__gte=1):
+        featured_post = posts[0]
+    else:
+        featured_post = None
     template = 'blog/blog.html'
-    return render(request, template)
+    context = {
+        'posts': posts,
+        'featured_post': featured_post,
+        'recent_posts': recent_posts,
+    }
+    return render(request, template, context)
 
 
 def blog_post(request):

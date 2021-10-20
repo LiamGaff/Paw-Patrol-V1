@@ -14,6 +14,7 @@
     </div>
 </div>
 {% if request.user.is_superuser %}
+<div class="container-fluid">
 <div class="row d-flex justify-content-center link-h">
     <div class="col-4 my-5 text-center mb-0">
         <a href="{% url 'blog_post' %}">
@@ -23,14 +24,19 @@
         </a>
     </div>
 </div>
+</div>
 {% endif %}
 <section class="head-section py-4 container-fluid">
         <div class="row">
             <div class="col-lg-8">
                 <div class="head-post shadow">
-                    <img src="/media/main_blog_img.jpg" class="img-fluid col-12" alt="main-blog-img">
+                    {% if featured_post.image %}
+                    <img src="{{ featured_post.image.url }}" class="img-fluid col-12" alt="main-blog-img">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ featured_post.title }}">
+                    {% endif %}
                     <div class="head-post-badge text-center py-3">
-                        <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i> 12.10/2021</a>
+                        <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ featured_post.date }}</a>
                         <a class="p-2 mb-1 px-3" href="#">Post</a>
                     </div>
                     <div class="head-post-content">
@@ -39,17 +45,23 @@
                                 <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
                             </div>
                             <div class="col-md-9">
-                                <h2>Blog post...post Post Post Post...... postpostpostpsot</h2>
+                                <h2>{{ featured_post.title }}</h2>
+                                <h3>{{ featured_post.story |truncatechars:60 }}</h3>
                             </div>
                         </div>
                     </div>
                 </div> 
             </div>
             <div class="col-lg-4 h-80">
+                {% for post in recent_posts %}
                 <div class="head-post shadow">
-                    <img src="/media/main_blog_img.jpg" alt="" class="img-fluid" alt="main-blog-img">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" class="img-fluid col-12" alt="main-blog-img">
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
+                    {% endif %}
                     <div class="head-post-badge text-center">
-                        <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i> 12.10/2021</a>
+                        <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>
                         <a class="p-2 mb-1 px-3" href="#">Post</a>
                     </div>
                     <div class="head-post-content">
@@ -58,32 +70,16 @@
                                 <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
                             </div>
                             <div class="col-md-9">
-                                <h3>Blog post...post</h3>
+                                <h2>{{ post.title }}</h2>
+                                <h3>{{ post.story |truncatechars:20 }}</h3>
                             </div>
                         </div>
                     </div>
                 </div> 
-                <div class="head-post shadow">
-                    <img src="/media/max_test.jpg" alt="" class="img-fluid" alt="main-blog-img">
-                    <div class="head-post-badge text-center">
-                        <a class="p-2 mb-1 px-3 " href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i> 12.10/2021</a>
-                        <a class="p-2 mb-1 px-3" href="#">Post</a>
-                    </div>
-                    <div class="head-post-content">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
-                            </div>
-                            <div class="col-md-9">
-                                <h3>Blog post...post</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
+                {% endfor %}
             </div>
         </div>
 </section>
-
 <section class="blog-posts mb-3s container-fluid">
     <div class="row">
         <div class="col-md-8">
