@@ -4,7 +4,7 @@
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
-<!-- YouTube Lukas Vyhnalek -->
+
 {% block content %}
 <div class="container-fluid">
     <div class="row m-0">
@@ -35,7 +35,7 @@
                         {% endif %}
                         <div class="head-post-badge text-center py-3">
                             <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ featured_post.date }}</a>
-                            <a class="p-2 mb-1 px-3" href="#">Post</a>
+                            <a class="p-2 mb-1 px-3" href="{% url 'view_post' featured_post.id %}">Post</a>
                         </div>
                         <div class="head-post-content">
                             <div class="row">
@@ -60,7 +60,7 @@
                         {% endif %}
                         <div class="head-post-badge text-center">
                             <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>
-                            <a class="p-2 mb-1 px-3" href="#">Post</a>
+                            <a class="p-2 mb-1 px-3" href="{% url 'view_post' post.id %}">Post</a>
                         </div>
                         <div class="head-post-content">
                             <div class="row">
@@ -99,8 +99,7 @@
                                 </p>
                                 </div>
                                 <div class="badge">
-                                    <a href="#">Story</a>
-                                    <a href="#">other</a>
+                                    <a href="{% url 'view_post' post.id %}">Story</a>
                                 </div>
                             </div>
                         </div>

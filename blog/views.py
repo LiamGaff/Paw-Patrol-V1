@@ -8,7 +8,7 @@ from .models import BlogPost
 def blog(request):
     """ return blog page with posts and featured post"""
     posts = BlogPost.objects.all()
-    recent_posts = BlogPost.objects.filter(published=True).order_by('-id')[0:2]
+    recent_posts = BlogPost.objects.filter(published=True)[0:2]
     if BlogPost.objects.filter(id__gte=1):
         featured_post = posts[0]
     else:
@@ -44,4 +44,15 @@ def blog_post(request):
         'form': form,
     }
 
+    return render(request, template, context)
+
+
+def view_post(request, post_id):
+    """ return blog page with posts and featured post"""
+    post = get_object_or_404(BlogPost, pk=post_id)
+
+    template = 'blog/blog_post.html'
+    context = {
+        'post': post
+    }
     return render(request, template, context)

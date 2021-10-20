@@ -29,7 +29,7 @@ class blogForm(forms.ModelForm):
     class Meta:
         model = BlogPost
         fields = {
-            'title', 'author', 'story', 'image'
+            'title', 'author', 'story',
         }
 
     image = forms.ImageField(label='Image',

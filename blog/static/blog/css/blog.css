@@ -80,6 +80,20 @@ a:hover{
     height: 20rem;
 }
 
+
+/* ................................. Extra css */
+
+.post-content{
+    background-color: #101820FF;
+    box-shadow: aliceblue;
+}
+
+.title{
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+
 /* ................................. Extra css */
 
 /* #logo{
