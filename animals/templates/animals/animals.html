@@ -20,12 +20,12 @@
             <div class="col-11 text-center">
                 <p class="info-text">
                     Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
-                    nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to take care of them.
+                    nursing homes may not be able to bring their furry friends along with them so our trusted team steps in to take care of them.
 
                    <br>
                     
-                    We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where ever they may be. We our a non profit organisation
-                    and all of our voluteers give up their homes for these lost animal out of the kindess of their hearts.
+                   We provide these animals a nice home to stay in as well as daily visits to their best friends(owners) where ever they may be. We are a nonprofit organization
+                   and all of our volunteers give up their homes for these lost animals out of the kindness of their hearts.
                 </p>
             </div>
         </div>
@@ -69,17 +69,19 @@
                                     (<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="{% url 'delete_animal' animal.id %}">Remove</a> {{ animal.friendly_name }})
                                 {% endif %}
                                 </small></p>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <i class="fas fa-paw mt-5 text-center"></i>
+                    <div class="col-2 d-sm-none d-md-block d-none d-sm-block">
+                        <i class="fas fa-paw mt-5 paw-right"></i>
                     </div>
                 </div>
             {% else %}
                 <div class="row d-flex justify-content-end rounded me-5">
+                    <div class="col-2 d-sm-none d-md-block d-none d-sm-block">
+                        <i class="fas fa-paw mt-5 paw-left"></i>
+                    </div>
                     <div class="col-11 col-md-10 card mb-4 animal-card">
                         <div class="row g-0">
                             <div class="col-md-8">

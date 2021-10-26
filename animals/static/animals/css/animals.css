@@ -12,7 +12,6 @@
     background-color: #1f2833;
     width: 70%;
     height: 70%;
-    max-height: 30rem;
 }
 
 .card-body{
@@ -37,4 +36,18 @@
     font-size: 1.5rem;
     font-weight: 400;
     padding-bottom: 2rem;
+}
+
+.paw-right{
+    font-size: 2rem;
+    font-weight: 400;
+    padding-top: 5rem;
+    padding-left: 7rem;
+}
+
+.paw-left{
+    font-size: 2rem;
+    font-weight: 400;
+    padding-top: 5rem;
+    padding-right: 7rem;
 }

@@ -42,7 +42,7 @@
       </figure>
     </div>
     <header>
-    <div class="container-fluid fixed-top overflow-hidden">
+    <div class="container-fluid fixed-top">
       <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-5 my-auto py-lg-0 text-center text-lg-right">
           <div id="logo">
@@ -89,7 +89,6 @@
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
-                      <a href="" class="dropdown-item">Page Management</a>
                       <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                       <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}

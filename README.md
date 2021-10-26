@@ -1,5 +1,5 @@
 # Paw-Patrol
-
+PawPatrol is a web application designed to model a chartiable organisation that deals with housing pets for owners that can no longer take care of their anmals due to medical reasons. This website was built as part of my fourth and final milstone project for CodeInstitutes diploma in software development. You can visit the deployed site from [here]().
 
 # UX
 ## User Stories
@@ -10,17 +10,29 @@ As a user I would like:
 * I would like to be able to get in contact with the organisation.
 * I would like to be to ask questons regarding the charity.
 * I would like to be able to sign up for a free account.
+* I would like to be able to login to my account.
+* I would like to be able to easily logout of my account.
 * I would like to have a place where i can view my previous donations.
 * I would like to be able to have readily available options to be directed to the donate page.
-* 
+* I would like to be able to easily make donations via card payment.
+* I would want to know more about both the animals and the volunteers that house them.
+* I would like to be informed of when my payment has been made.
+* I would like to read updates about how the charity and the animals are doing.
 
+
+## Organisation Goals
+* To raise awareness for the charirty and their goals.
+* To raise as mouch money as possible to benefit the cause of the charity.
+* To be able to answer users questions about the organisation.
+* To sign up new users.
+* To have an easy online payment system for users to donate,
 
 
 ## Strategy
-This web page was designd as a charity page for a ficitional charity(the idea is still usefull). The page should be informative and easily navigated. All the features to be implemented are to inform the user of the value of donating to the charity and make donating as easy as possible.
+This web page was designd as a charity page for a ficitional charity. The page should be informative and easily navigated. All the features to be implemented are to inform the user of the value of donating to the charity and make donating as easy as possible.
 
 ## Scope
-The user needs had to be meet as this would encourage the users to make a donation. Being able to access the doantion page from any point of the webpage was very importnant. I wanted the to allow no dealy between the user deciding to make a donation and then doing so. Currently you have to sign up to make a donation but I would like to be able to remove this if your only making a one time donation. Signing up and loging in are all done very easily though.
+The user needs had to be meet as this would encourage the users to make a donation. Being able to access the doantion page from any point of the webpage was very importnant. I wanted the to allow no delay between the user deciding to make a donation and then doing so. Currently you have to sign up to make a donation but I would like to be able to remove this if your only making a one time donation. Signing up and loging in are all done very easily though.
 
 ## Structure
 
@@ -99,7 +111,7 @@ The design of the webpage was first and foremost about the animals. Thats why th
 
 
 ## Features Still to Be Implemented
-
+* I would like to set up an automatic monthly payment system. As I had some trouble with setting up the stripe payment system I had didn't have time to do this.
 
 # Technologies Used
 ## Languages
@@ -107,7 +119,6 @@ The design of the webpage was first and foremost about the animals. Thats why th
 * [CSS3](https://en.wikipedia.org/wiki/CSS)
 * [JavaScript](https://javascript.info/)
 * [Python](https://www.python.org/download/releases/3.0/)
-* [MongoDB](https://www.mongodb.com/)
 * [Stripe]()
 
 
@@ -134,12 +145,32 @@ The design of the webpage was first and foremost about the animals. Thats why th
 * [Django]()
 >The entire site was built on the django framework.
 
+* [AWS S3 Bucket]()
+> AWS was used to store staic and media files.
+
+* [Djngo Crispy Forms]()
+> Used to style forms.
+
+* [BootStarp]()
+> Was used to prvide layout and styling.
+
+* [Django Allauth]()
+> Was used to handle all the user functionality.
+
 # Database
 
 Production Database: PostgresSQL
 
 Development Database: SQLite3
 
+## Database Table
+Table | Value 1 | value 2 | value 3 | value 4 | value 5 | value 6 | value 7 |
+----- |  ------ | ------- | ------- | ------- | ------- | ------- | ------- |
+Animals | friendly_name| name |type | breed | about | image | id |
+Volunteers |  friendly_name | name | about | image | 
+Donations |  User | amount | date | id | 
+Users |  username | email | first name | last name | 
+Blog Posts |  author | story | date| image | id |
 
 # Testing
 
@@ -155,21 +186,6 @@ Nm | Browser | Action | Test result |
 
 
 ## Deployment
-
-## On GitHub repository
-<!-- * Use pip3 to install all modules.
-
-* Create an env.py file and make sure it is listed in your .gitignore file. Input all your important secret variables into this file e.g (API_key, SECRET_KEY, IP, PORT, MONGO_URI, and MONGO_DBNAME.)
-
-* Enter this at the top of your python app file - if os.path.exists("env.py"): import env.
-
-* For each environmental variable, define the variables in the app.py file
-
-* When all the necessary modules are installed and the env.py file is complete, your Requirements.txt file and list all the modules by entering this into the terminal - pip3 freeze --local > requirements.txt
-
-* Create a Procfile that will tell Heroku how to run your app - echo web: python app.py > Procfile
-
-* Git add, commit and push all your changes to the github repository. -->
 
 ## Heroku
 * Sign in to a Heroku account
@@ -241,14 +257,12 @@ Nm | Browser | Action | Test result |
 
 # Credits
 
-
-
 ## Code
 * W3 School and StackFlow were greatly used throughout this project.
-* I used a combination of code from youtube to build both the blog and the payment system.
+* I used a combination of code from youtube to build both the blog(Lukas Vyhnalek channel) and the payment system.
 * Some code used came from the CodeInstitue Boutique Ado project.
 
 ## Acknowledgments
 * I would also like to credit and thank my mentor Brian Macharia for all his help and excellent guidance throughout this project. Also Eoin O'Neill who also reviewed my work and was a huge help.
 
-* I would like to thank my tutors and the slack community for all the help they provided me with.
+* I would like to thank my tutors and the slack community for all the help they provided me.

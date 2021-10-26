@@ -27,6 +27,7 @@ p{
 
 img{
     filter: grayscale(10%) brightness(0.9);
+    object-fit: contain;
 }
 
 a{
@@ -190,6 +191,7 @@ a:hover{
     float: left;
     height: 80vh;
     filter: grayscale(10%) brightness(0.8);
+    object-fit: cover;
 }
 
 @keyframes slider{
@@ -531,7 +533,7 @@ color: blue;
     }
 }
 
-@media (max-width: 1200px){
+@media (max-width: 400px){
     .donate-banner{
         top: 20%;
     }

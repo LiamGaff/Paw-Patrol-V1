@@ -16,7 +16,7 @@
             <div class="col-11 text-center">
                 <p class="info-text">
                     Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
-                    nursing homes may not be able to bring their furry friends along with them so our trusted team steps in to take care of them.
+                    nursing homes may not be able to take their furry friends along with them so our trusted team steps in to take care of them.
 
                    <br>
                     
@@ -33,7 +33,7 @@
         </div>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for volunteer in volunteers %}
-                <div class="col">
+                <div class="col resize">
                     <div class="card h-100">
                         {% if volunteer.image %}
                             <img src="{{ volunteer.image.url }}" class="card-img-top volumteer-img img-fluid" alt="{{ volnteer.name }}">
@@ -43,9 +43,6 @@
                         <div class="card-body">
                             <h4 class="card-title sub-headings">{{ volunteer.friendly_name }}</h4>
                             <p class="card-text info-text">{{ volunteer.about }}</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
                         </div>
                     </div>
                 </div>
@@ -58,7 +55,7 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-8 text-center">
+                <div class="col-11 col-md-8 text-center">
                     <p class="info-text">
                         If you have any questions about our services, volunteering, or donations please get in touch through the form below.
                         You can also get in touch directly through the phone or email details below. Office hours may vary.
@@ -71,7 +68,7 @@
                     </div>
                 </div>
                 <div class="row mt-3 mb-4">
-                        <div class="col-12 col-md-6 border-right">
+                        <div class="col-12 col-md-6 border-right info-text">
                             <h3>Email:</h3>
                                 <p>PawP@testmail.com</p>
                             <h3>Phone:</h3>

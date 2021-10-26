@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 <ul class="navbar-nav">
     <li class="list-inline-item nav-item">
-    <a class="text-black nav-link d-block d-lg-none nav-link" href="{% url 'home' %}">
+    <a class=" nav-link d-block d-lg-none nav-link" href="{% url 'home' %}">
         <div class="">
             <p class="my-0">
                 Home
@@ -10,7 +10,7 @@
     </a>
     </li>
     <li class="list-inline-item nav-item">
-    <a class="text-black nav-link d-block d-lg-none nav-link" href="">
+    <a class=" nav-link d-block d-lg-none nav-link" href="">
         <div class="">
             <p class="my-0">
                 Animals
@@ -19,7 +19,7 @@
     </a>
     </li>
     <li class="list-inline-item nav-item">
-    <a class="text-black nav-link d-block d-lg-none nav-link" href="">
+    <a class=" nav-link d-block d-lg-none nav-link" href="">
         <div class="">
             <p class="my-0">
                 Blog
@@ -28,13 +28,12 @@
     </a>
     </li>
     <li class="dropdown nav-item">
-        <a class="text-black nav-link d-block d-lg-none nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class=" nav-link d-block d-lg-none nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="">
                 <p class="my-0">My Account</p>
             </div>
         </a>
         <div class="dropdown-menu border-0" aria-labelledby="user-options">
-            <a href="" class="dropdown-item">Page Management</a>
             {% if request.user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -45,7 +44,7 @@
 </div>
     </li>
     <li class="list-inline-item nav-item">
-        <a class="text-black nav-link d-block d-lg-none nav-link" href="">
+        <a class=" nav-link d-block d-lg-none nav-link" href="">
             <div class="">
                 <p class="my-0">
                     Donate
