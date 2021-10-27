@@ -29,27 +29,25 @@ def donate(request):
 
 @csrf_exempt
 def create_payment_intent(request):
+    """ Create PaymentIntent for tripe payment """
     if request.method == 'POST':
         data = json.loads(request.body)
+        amount = 10
+        print(amount)
 
-        form = Amount(request.POST)
-        if form.is_valid():
-            amount = request.POST.get('amount', '')
-            print(amount)
+        customer = stripe.Customer.create(
+                name=request.user.get_username(),
+                email=request.user.email,
+                )
 
-            customer = stripe.Customer.create(
-                    name=request.user.get_username(),
-                    email=request.user.email,
-                    )
-
-            intent = stripe.PaymentIntent.create(
-                customer=customer,
-                payment_method_types=['card'],
-                amount=amount*100,
-                currency=data['currency'],
-            )
-            return JsonResponse({'publishableKey': publishableKey,
-                                'clientSecret': intent['client_secret']})
+        intent = stripe.PaymentIntent.create(
+            customer=customer,
+            payment_method_types=['card'],
+            amount=amount*100,
+            currency=data['currency'],
+        )
+        return JsonResponse({'publishableKey': publishableKey,
+                            'clientSecret': intent['client_secret']})
 
 
 def successMsg(request):
@@ -60,6 +58,7 @@ def successMsg(request):
 # Using Django
 @csrf_exempt
 def my_webhook_view(request):
+    "Prebuilt stripe webooks"
     payload = request.body
     event = None
 

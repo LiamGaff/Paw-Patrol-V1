@@ -1,14 +1,15 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field
+from crispy_forms.layout import Submit
 from .models import ContactModel
 
 
 class ContactForm(forms.ModelForm):
+    """ Mofel form form for contactform """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.add_input(Submit('submit', 'Submit', css_class='btn-primary'))
+        self.helper.add_input(Submit('submit', 'Submit', css_class='btn-black'))
         self.helper.form_method = 'POST'
 
         """

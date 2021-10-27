@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class BlogPost(models.Model):
+    """ Model for blog posts """
     title = models.CharField(max_length=254)
     author = models.ForeignKey(User, on_delete=models.CASCADE, db_column='user', related_name='blogs')
     story = models.TextField()

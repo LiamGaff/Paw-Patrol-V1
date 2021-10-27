@@ -7,6 +7,7 @@ from animals.widgets import CustomClearableFileInput
 
 
 class blogForm(forms.ModelForm):
+    """ Update blogs in database """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, *kwargs)
         self.helper = FormHelper()

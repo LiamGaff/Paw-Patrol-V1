@@ -4,6 +4,7 @@ from django import forms
  
  
 class CustomSignupForm(SignupForm):
+    """ Custom allauth sinup form """
     first_name = forms.CharField(max_length=30, label='First Name')
     last_name = forms.CharField(max_length=30, label='Last Name')
 

@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Volunteer(models.Model):
+    """ Model for Volunteers """
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     about = models.TextField()
@@ -15,6 +16,7 @@ class Volunteer(models.Model):
 
 
 class Animal(models.Model):
+    """ Model for Animals"""
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     type = models.CharField(max_length=254)
@@ -27,6 +29,7 @@ class Animal(models.Model):
 
 
 class ContactModel(models.Model):
+    """ Model for Contact form """
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=254)
     question = models.TextField(max_length=400)

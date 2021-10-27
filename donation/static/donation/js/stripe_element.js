@@ -4,7 +4,7 @@ var donationData = {
   currency: "eur",
 };
 // Disable the button until we have Stripe set up on the page
-document.querySelector("button").disabled = false;
+document.querySelector("button").disabled = true;
 fetch("create_payment_intent/", {
   method: "POST",
   headers: {

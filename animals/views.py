@@ -46,6 +46,7 @@ def add_animal(request):
 
 @login_required
 def delete_animal(request, animal_id):
+    """ Remove animals from the data base """
     if not request.user.is_superuser:
         messages.error(request, 'Only admin users can make this change.')
         return redirect(reverse('animals'))
@@ -58,6 +59,7 @@ def delete_animal(request, animal_id):
 
 @login_required
 def edit_animal(request, animal_id):
+    """ Edit animals in the data base """
     if not request.user.is_superuser:
         messages.error(request, 'Only admin users can make this change.')
         return redirect(reverse('animals'))

@@ -7,6 +7,7 @@ from .widgets import CustomClearableFileInput
 
 
 class addAnimalForm(forms.ModelForm):
+    """ RUpdate animal database """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, *kwargs)
         self.helper = FormHelper()

@@ -1,5 +1,4 @@
 from django import forms
-from crispy_forms.helper import FormHelper
 
 from .models import Donation
 
@@ -10,13 +9,13 @@ from .models import Donation
 
 
 class Amount(forms.ModelForm):
+    """ Form for accepting donation amount in stripe payment """
 
     amount = forms.DecimalField(min_value=5, max_value=100)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, *kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'POST'
+        self.fields['amount'].widget.attrs.update({'class': 'myfieldclass'})
 
         placeholders = {
             'amount': '€5 - €100'

@@ -4,7 +4,8 @@ body{
 
 p,
 h2,
-h3{
+h3,
+h5{
     color: #66fcf1;
     font-weight: 600;
     /* text-shadow:
@@ -78,6 +79,10 @@ a:hover{
     background-color: #101820FF;
     color: #66fcf1;
     height: 20rem;
+}
+
+.all-posts-img{
+    object-fit: cover;
 }
 
 

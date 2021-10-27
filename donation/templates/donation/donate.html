@@ -26,7 +26,7 @@
                     </P>
                 </div>
                 <span class="border-arrow right d-sm-none d-md-block d-none d-sm-block"></span>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg mb-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg payment-card mb-3">
                     {% if request.user.is_authenticated %}
                     <form action="{% url 'create_payment_intent' %}" method="POST" id="payment-form">
                         {% csrf_token %}
@@ -70,7 +70,7 @@
         </div>
     <div class="row justify-content-center">
         <div class="col-4 mb-3">
-            <img src="{{ MEDIA_URL }}/media/max_test.jpg" class="donate-img w-100" alt="...">
+            <img src="{{ MEDIA_URL }}/media/max_test.jpg" class="donate-img w-100" alt="Image of a dog">
         </div>
     </div>
     <div class="row justify-content-center mt-1">
@@ -91,7 +91,7 @@
     
     <div class="row justify-content-center mt-5">
         <div class="col-4 mb-3">
-            <img src="{{ MEDIA_URL }}/media/donate_img1.jpg" class="donate-img w-100" alt="...">
+            <img src="{{ MEDIA_URL }}/media/donate_img1.jpg" class="donate-img w-100" alt="Image of a man with a dog">
         </div>
     </div>
     <div class="row justify-content-center mt-1">

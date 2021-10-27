@@ -3,22 +3,32 @@ As the web page was being built Chrome developer tools were used regularly to en
 
 ## Code validation
 
-* At the end of the development process, W3C CSS and Html validator were used to check the code.
+* W3C Markup Validation was used to validate HTML.
 
-* The CSS validator came back with no errors.
+* W3C CSS validation was used to validate CSS.
 
-* The HTML threw up some errors that were due to the use of flask. These errors are still being looked into but do not seem to have any effect on the application's performance. After further validation testing, errors have been corrected on most templates. The only errors occuring now are due to a materialize form template. I am unable to change the code in these templates to fix said html errors but the form still works as desired.
+* JSHint was used to validate JavaScript.
+
+* Chrome Devtools to test responsivitiy throughout.
+
+* HTML and CSS Beautifier use format selection in beautify code
+
+* AutoPrefixer -This project used AutoPrefixer to make sure the css code is valid for all browsers.
+ 
+* Markdown live-preview -This project used markdown previewer to check the rendering of the readme.md file content.
+ 
+* IDLE- to check python code
 
 ## Bugs
 
-**Unresolved issues**
-* I have not yet set up the functionality for the user to update their profile image/avatar.
+* The drop down navigation menue wasnt working. This was do to it beeing automatically set to hidden. All I had to do here was remove the hidden class.
 
-* Some data retrieved from the the google books API is still presented as it is in the JSON file which looks messy. Still working on fixing this.
+* Strip Payment element wouldnt render. This was due to having unessesary code 
+
+**Unresolved issues**
+
 
 **continued testing**
-* I am still trying to find the best way to call the book API data so that it looks more presentable.
-* Working on only allowing a user to post one review per book.
 
 # Manual Testing
 

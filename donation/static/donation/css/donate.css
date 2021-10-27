@@ -83,43 +83,18 @@ background-color: #fefde5 !important;
     background-color: #c5d5cb;
 }
 
-.value-wrapper{
-    width: 100%;
-    margin-bottom: 1rem;
+.payment-card{
+    max-height: 20rem;
+    padding-top: 2rem;
 }
 
-.hidebx{
-    display: none;
+.myfieldclass{
+    width: 60%;
+    min-height: 2rem;
+    border: 2px solid black;
+    padding: 0.1rem;
 }
 
-form .value-wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    
-}
-
-.radio-btn{
-    text-align: center;
-    box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.35);
-    padding: 10px;
-    border: 2px solid #fff;
-    cursor: pointer;
-    transition: all 0.5s ease-in;
-    background-color: #c5d5cb;
-    width: 10rem;
-    border-radius: 15px;
-}
-
-.display-box .d-value{
-    font-weight: 600;
-    margin-bottom: 5px;
-    letter-spacing: 0.5px;
-}
-
-input[type=radio]:checked + .radio-btn{
-    border-color: black;
-}
 
 /* ........................................ Doante page */
 

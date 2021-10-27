@@ -27,6 +27,7 @@ def index(request):
 
 
 def messageForm(request):
+    """ Get from post data and email query to host_user """
     if request.method == "POST":
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
