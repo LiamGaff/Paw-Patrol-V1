@@ -3,62 +3,83 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from requests.exceptions import HTTPError
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
-from .models import Donations
-from profiles.models import UserProfile
+import json
+from django.http import HttpResponse, JsonResponse
 
-if os.path.exists("env.py"):
-    import env
+from .forms import Amount
+
 
 import stripe
 
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+publishableKey = os.environ.get('STRIPE_PUBLIC_KEY')
 
 
 def donate(request):
     """ return doante page """
+    form = Amount()
 
-    return render(request, "donation/donate.html")
+    context = {
+        'form': form,
+    }
+    return render(request, "donation/donate.html", context)
 
 
-def charge(request):
+@csrf_exempt
+def create_payment_intent(request):
     if request.method == 'POST':
-        try:
-            print('Data:', request.POST)
+        data = json.loads(request.body)
 
-            amount = int(request.POST['donate-value'])
+        form = Amount(request.POST)
+        if form.is_valid():
+            amount = request.POST.get('amount', '')
+            print(amount)
 
             customer = stripe.Customer.create(
-                name=request.user.get_username(),
-                email=request.user.email,
-                source=request.POST['stripeToken']
-                )
+                    name=request.user.get_username(),
+                    email=request.user.email,
+                    )
 
-            charge = stripe.Charge.create(
+            intent = stripe.PaymentIntent.create(
                 customer=customer,
+                payment_method_types=['card'],
                 amount=amount*100,
-                currency='eur',
-                description="Donation"
+                currency=data['currency'],
             )
-
-            donation = Donations(name=request.user.get_username(),
-                                 email=request.user.email, amount=amount)
-            donation.save()
-
-        except HTTPError as http_err:
-            print(f'HTTP error occurred: {http_err}')
-            messages.error(request, 'An error occurred in processing your request. Please try again later.')
-            return render(request, "donation/donate.html")
-
-        except Exception as err:
-            print(f'Other error occurred: {err}')
-            messages.error(request, 'An error occurred in processing your request. Please try again later.')
-            return render(request, "donation/donate.html")
-
-    return redirect(reverse('success', args=[amount]))
+            return JsonResponse({'publishableKey': publishableKey,
+                                'clientSecret': intent['client_secret']})
 
 
-def successMsg(request, args):
-      
-    amount = args
-    return render(request, "donation/success.html", {'amount': amount})
+def successMsg(request):
+
+    return render(request, "donation/success.html")
+
+
+# Using Django
+@csrf_exempt
+def my_webhook_view(request):
+    payload = request.body
+    event = None
+
+    try:
+        event = stripe.Event.construct_from(
+            json.loads(payload), stripe.api_key
+        )
+    except ValueError as e:
+        # Invalid payload
+        return HttpResponse(status=400)
+
+    # Handle the event
+    if event.type == 'payment_intent.succeeded':
+        payment_intent = event.data.object  # contains a stripe.PaymentIntent
+        print('PaymentIntent was successful!')
+    elif event.type == 'payment_method.attached':
+        payment_method = event.data.object  # contains a stripe.PaymentMethod
+        print('PaymentMethod was attached to a Customer!')
+    # ... handle other event types
+    else:
+        print('Unhandled event type {}'.format(event.type))
+
+    return HttpResponse(status=200)

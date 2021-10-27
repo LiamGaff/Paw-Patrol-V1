@@ -151,8 +151,8 @@ input[type=radio]:checked + .radio-btn{
 }
 
 .donate-bg{
-    background-color: #abbab0;
-    padding: 2rem 2rem 2rem 2rem;
+    background-color: #bed1c4;
+    padding: 4rem 2rem 1rem 2rem;
     box-shadow: 20px 20px 20px 20px;
 }
 
@@ -188,4 +188,8 @@ hr.dotted-sml{
     .radio-btn{
         width: 5rem;
 }
+}
+
+.result-message a{
+    display: hidden;
 }

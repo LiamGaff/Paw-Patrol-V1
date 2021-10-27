@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Donations
+from .models import Donation
 
 
-class DonationsAdmin(admin.ModelAdmin):
+class DonationAdmin(admin.ModelAdmin):
     fields = (
         "name",
         'email',
@@ -18,4 +18,4 @@ class DonationsAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(Donations, DonationsAdmin)
+admin.site.register(Donation, DonationAdmin)

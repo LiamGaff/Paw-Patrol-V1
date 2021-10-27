@@ -1,11 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
+from profiles.models import UserProfile
 import uuid
 
 
-class Donations(models.Model):
+class Donation(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=254)
-    amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=5)
     date = models.DateField(auto_now_add=True)
     donation_id = models.CharField(max_length=32, null=False, editable=False)
 
@@ -26,3 +28,4 @@ class Donations(models.Model):
 
     def __str__(self):
         return self.name
+

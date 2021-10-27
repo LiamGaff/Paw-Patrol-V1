@@ -358,20 +358,18 @@ footer{
 
 /* ------------------------------- bootstrap toasts */
 
-/* .message-container {
+.message-container {
     position: absolute;
-    top: 72px;
-    right: 15px;
     z-index: 1;
-} */
+} 
 
-/* .custom-toast {
+.custom-toast {
     overflow: visible;
-} */
+}
 
-/* .toast-capper {
+.toast-capper {
     height: 2px;
-} */
+}
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
