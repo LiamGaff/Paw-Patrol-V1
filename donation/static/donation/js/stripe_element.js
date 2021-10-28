@@ -66,7 +66,7 @@ var payWithCard = function(stripe, card, clientSecret, amount) {
         // The payment succeeded!
         orderComplete(result.paymentIntent.id);
         alert("Thanks for your donation");
-        location.href="success/"
+        // location.href="success/"
       }
     });
 };
