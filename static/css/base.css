@@ -27,7 +27,7 @@ p{
 
 img{
     filter: grayscale(10%) brightness(0.9);
-    object-fit: contain;
+    object-fit: cover;
 }
 
 a{

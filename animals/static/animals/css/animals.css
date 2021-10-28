@@ -1,6 +1,6 @@
 .animals-img{
     height: 100%;
-    contain: content;
+    object-fit: cover;
     overflow: hidden;
     border-radius: 80%;
 }
