@@ -11,11 +11,9 @@ from .models import Donation
 class Amount(forms.ModelForm):
     """ Form for accepting donation amount in stripe payment """
 
-    amount = forms.DecimalField(min_value=5, max_value=100)
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, *kwargs)
-        self.fields['amount'].widget.attrs.update({'class': 'myfieldclass'})
+        self.fields['amount'].widget.attrs.update({'class': 'myfieldclass'}, min_value=5, max_value=100)
 
         placeholders = {
             'amount': '€5 - €100'
