@@ -20,7 +20,7 @@ class addAnimalForm(forms.ModelForm):
             'type': 'Type of animal(e.g Dog, cat...)',
             'breed': 'Breed of animal?',
             'about': 'About the animal',
-            'image': 'Image'
+            'image': ''
         }
 
         self.fields['name'].widget.attrs['autofocus'] = True

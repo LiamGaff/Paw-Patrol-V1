@@ -27,7 +27,7 @@ p{
 
 img{
     filter: grayscale(10%) brightness(0.9);
-    object-fit: cover;
+    object-fit: contain;
 }
 
 a{
@@ -38,7 +38,6 @@ a{
 
 a:hover{
     color: black;
-    text-decoration: underline;
 }
 
 /* ..................................... Header/Nav */
@@ -62,6 +61,11 @@ a:hover{
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
+}
+
+.donate-nav:hover{
+    text-shadow: none;
+    color: black;
 }
 
 .list-inline-item:not(:last-child){
@@ -174,7 +178,6 @@ a:hover{
 
 #slider{
     overflow:hidden;
-    position: sticky;
     top: 0;
 }
 
@@ -360,7 +363,9 @@ footer{
 
 .message-container {
     position: absolute;
-    z-index: 1;
+    top: 72px;
+    right: 15px;
+    z-index: 11;
 } 
 
 .custom-toast {
@@ -498,12 +503,6 @@ color: blue;
     }
 
 /* -------------------------------- Media Queries */
-
-/* @media (min-width: 1200px) {
-    .container {
-      max-width: 80%;
-    }
-  } */
 
   @media (min-width: 992px) {
     .fixed-top-desktop-only {

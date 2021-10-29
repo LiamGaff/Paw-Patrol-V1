@@ -5,5 +5,5 @@ urlpatterns = [
     path('', views.donate, name='donate'),
     path('create_payment_intent/', views.create_payment_intent, name='create_payment_intent'),
     path('success/', views.success_msg, name='success'),
-    # path('my_webhook_view/', views.my_webhook_view, name='my_webhook_view'),
+    # path('wh/', webhook, name='webhook'),
 ]

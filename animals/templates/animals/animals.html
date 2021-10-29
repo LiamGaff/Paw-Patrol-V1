@@ -1,113 +1,111 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'animals/css/animals.css' %}">
+<link rel="stylesheet" href="{% static 'animals/css/animals.css' %}">
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid">
-        <div class="row d-flex justify-content-center">
-            <span class="border-arrow-down-index left mt-0"></span>
-        </div>
-        <div class="row top-heading">
-            <div class="col-12 my-5 text-center mt-0 mb-2">
-                <h2 class="headings"><bold>Animals</bold></h2>
-                <i class="fas fa-dog headings"></i>
+<div class="container-fluid">
+   <div class="row d-flex justify-content-center">
+      <span class="border-arrow-down-index left mt-0"></span>
+   </div>
+   <div class="row top-heading">
+      <div class="col-12 my-5 text-center mt-0 mb-2">
+         <h2 class="headings">Animals</h2>
+         <i class="fas fa-dog headings"></i>
+      </div>
+   </div>
+   <div class="row d-flex justify-content-center">
+      <div class="col-11 text-center">
+         <p class="info-text">
+            Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
+            nursing homes may not be able to bring their furry friends along with them so our trusted team steps in to take care of them.
+            <br>
+            We provide these animals a nice home to stay in as well as daily visits to their best friends(owners) where ever they may be. We are a nonprofit organization
+            and all of our volunteers give up their homes for these lost animals out of the kindness of their hearts.
+         </p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 my-5 text-center mb-0">
+         <h2 class="headings">Meet Our Friends</h2>
+         <i class="fas fa-cat headings"></i>
+      </div>
+   </div>
+   {% if request.user.is_superuser %}
+   <div class="row d-flex justify-content-center link-h">
+      <div class="col-4 my-5 text-center mb-0">
+         <a href="{% url 'add_animal' %}">
+            <p class="link-text">
+               Add new animal
+            </p>
+         </a>
+      </div>
+   </div>
+   {% endif %}
+   {% for animal in animals %}
+   {% if forloop.counter|divisibleby:2 %}
+   <div class="row d-flex justify-content-start rounded ms-5">
+      <div class="col-10 card mb-4 animal-card">
+         <div class="row g-0">
+            <div class="col-md-4">
+               {% if animal.image %}
+               <img src="{{ animal.image.url }}" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
+               {% else %}
+               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
+               {% endif %}
             </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-11 text-center">
-                <p class="info-text">
-                    Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or 
-                    nursing homes may not be able to bring their furry friends along with them so our trusted team steps in to take care of them.
-
-                   <br>
-                    
-                   We provide these animals a nice home to stay in as well as daily visits to their best friends(owners) where ever they may be. We are a nonprofit organization
-                   and all of our volunteers give up their homes for these lost animals out of the kindness of their hearts.
-                </p>
+            <div class="col-md-8">
+               <div class="card-body mr-3">
+                  <h5 class="card-title sub-headings">{{ animal.friendly_name }}</h5>
+                  <p class="card-text info-text">Type: {{ animal.type }}</p>
+                  <p class="card-text info-text">Breed: {{ animal.breed }}</p>
+                  <p class="card-text info-text line-clamp"> About:<br> {{ animal.about }}</p>
+                  <p class="card-text"><small> <b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
+                     {% if request.user.is_superuser %}
+                     (<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="{% url 'delete_animal' animal.id %}">Remove</a> {{ animal.friendly_name }})
+                     {% endif %}
+                     </small>
+                  </p>
+               </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 my-5 text-center mb-0">
-                <h2 class="headings">Meet Our Friends</h2>
-                <i class="fas fa-cat headings"></i>
+         </div>
+      </div>
+      <div class="col-2 d-sm-none d-md-block d-none d-sm-block">
+         <i class="fas fa-paw mt-5 paw-right"></i>
+      </div>
+   </div>
+   {% else %}
+   <div class="row d-flex justify-content-end rounded me-5">
+      <div class="col-2 d-sm-none d-md-block d-none d-sm-block">
+         <i class="fas fa-paw mt-5 paw-left"></i>
+      </div>
+      <div class="col-11 col-md-10 card mb-4 animal-card">
+         <div class="row g-0">
+            <div class="col-md-8">
+               <div class="card-body ml-3">
+                  <h5 class="card-title sub-headings">{{ animal.friendly_name }}</h5>
+                  <p class="card-text info-text">Type:{{ animal.type }}</p>
+                  <p class="card-text info-text">Breed: {{ animal.breed }}</p>
+                  <p class="card-text info-text line-clamp"> About:<br> {{ animal.about }}</p>
+                  <p class="card-text"><small><b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
+                     {% if request.user.is_superuser %}
+                     (<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="{% url 'delete_animal' animal.id %}">Remove</a> {{ animal.friendly_name }})
+                     {% endif %}
+                     </small>
+                  </p>
+               </div>
             </div>
-        </div>
-        {% if request.user.is_superuser %}
-            <div class="row d-flex justify-content-center link-h">
-                <div class="col-4 my-5 text-center mb-0">
-                    <a href="{% url 'add_animal' %}">
-                        <p class="link-text">
-                            Add new animal
-                        </p>
-                    </a>
-                </div>
+            <div class="col-md-4">
+               {% if animal.image %}
+               <img src="{{ animal.image.url }}" class="card-img-top animals-img" alt="{{ animal.name }}">
+               {% else %}
+               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img" alt="{{ animal.name }}">
+               {% endif %}
             </div>
-        {% endif %}
-        {% for animal in animals %}
-            {% if forloop.counter|divisibleby:2 %}
-                <div class="row d-flex justify-content-start rounded ms-5">
-                    <div class="col-10 card mb-4 animal-card">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                {% if animal.image %}
-                                        <img src="{{ animal.image.url }}" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
-                                    {% else %}
-                                        <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
-                                    {% endif %}
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body mr-3">
-                                <h5 class="card-title sub-headings">{{ animal.friendly_name }}</h5>
-                                <p class="card-text info-text">Type: {{ animal.type }}</p>
-                                <p class="card-text info-text">Breed: {{ animal.breed }}</p>
-                                <p class="card-text info-text line-clamp"> About:<br> {{ animal.about }}</p>
-                                <p class="card-text"><small> <b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
-                                {% if request.user.is_superuser %}
-                                    (<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="{% url 'delete_animal' animal.id %}">Remove</a> {{ animal.friendly_name }})
-                                {% endif %}
-                                </small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2 d-sm-none d-md-block d-none d-sm-block">
-                        <i class="fas fa-paw mt-5 paw-right"></i>
-                    </div>
-                </div>
-            {% else %}
-                <div class="row d-flex justify-content-end rounded me-5">
-                    <div class="col-2 d-sm-none d-md-block d-none d-sm-block">
-                        <i class="fas fa-paw mt-5 paw-left"></i>
-                    </div>
-                    <div class="col-11 col-md-10 card mb-4 animal-card">
-                        <div class="row g-0">
-                            <div class="col-md-8">
-                                <div class="card-body ml-3">
-                                <h5 class="card-title sub-headings">{{ animal.friendly_name }}</h5>
-                                <p class="card-text info-text">Type:{{ animal.type }}</p>
-                                <p class="card-text info-text">Breed: {{ animal.breed }}</p>
-                                <p class="card-text info-text line-clamp"> About:<br> {{ animal.about }}</p>
-                                <p class="card-text"><small><b><a href="{% url 'donate' %}">Donate</a> to to help {{ animal.friendly_name }}</b>
-                                {% if request.user.is_superuser %}
-                                    (<a href="{% url 'edit_animal' animal.id %}">Edit</a>/ <a href="{% url 'delete_animal' animal.id %}">Remove</a> {{ animal.friendly_name }})
-                                {% endif %}
-                                </small></p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                {% if animal.image %}
-                                        <img src="{{ animal.image.url }}" class="card-img-top animals-img" alt="{{ animal.name }}">
-                                    {% else %}
-                                        <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img" alt="{{ animal.name }}">
-                                    {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+         </div>
+      </div>
+   </div>
+   {% endif %}
+   {% endfor %}
+</div>
 {% endblock %}

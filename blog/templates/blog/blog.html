@@ -1,180 +1,178 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
-
 {% block content %}
 <div class="container-fluid">
-    <div class="row m-0">
-        <div class="col-12 mt-5 text-center">
-            <h2 class="headings"><bold>Blog</bold></h2>
-            <i class="fas fa-dog headings"></i>
-        </div>
-    </div>
-    {% if request.user.is_superuser %}
-    <div class="row d-flex justify-content-center link-h">
-        <div class="col-4 my-5 text-center mb-0">
-            <a href="{% url 'blog_post' %}">
-                <p class="link-text">
-                    Add new post
-                </p>
-            </a>
-        </div>
-    </div>
-    {% endif %}
-    <section class="head-section py-4">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="head-post shadow">
-                        {% if featured_post.image %}
-                        <img src="{{ featured_post.image.url }}" class="img-fluid col-12" alt="main-blog-img">
-                        {% else %}
-                        <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ featured_post.title }}">
-                        {% endif %}
-                        <div class="head-post-badge text-center py-3">
-                            <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ featured_post.date }}</a>
-                            <a class="p-2 mb-1 px-3" href="{% url 'view_post' featured_post.id %}">Post</a>
-                        </div>
-                        <div class="head-post-content">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
-                                </div>
-                                <div class="col-md-9">
-                                    <h2>{{ featured_post.title }}</h2>
-                                    <h3>{{ featured_post.story |truncatechars:60 }}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-4">
-                    {% for post in recent_posts %}
-                    <div class="sub-post shadow mb-1">
-                        {% if post.image %}
-                            <img src="{{ post.image.url }}" class="img-fluid sub-img" alt="main-blog-img">
-                        {% else %}
-                            <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
-                        {% endif %}
-                        <div class="head-post-badge text-center">
-                            <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>
-                            <a class="p-2 mb-1 px-3" href="{% url 'view_post' post.id %}">Post</a>
-                        </div>
-                        <div class="head-post-content">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
-                                </div>
-                                <div class="col-md-9">
-                                    <h2>{{ post.title }}</h2>
-                                    <h3>{{ post.story |truncatechars:20 }}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                    {% endfor %}
-                </div>
+   <div class="row m-0">
+      <div class="col-12 mt-5 text-center">
+         <h2 class="headings">Blog</h2>
+         <i class="fas fa-dog headings"></i>
+      </div>
+   </div>
+   {% if request.user.is_superuser %}
+   <div class="row d-flex justify-content-center link-h">
+      <div class="col-4 my-5 text-center mb-0">
+         <a href="{% url 'blog_post' %}">
+            <p class="link-text">
+               Add new post
+            </p>
+         </a>
+      </div>
+   </div>
+   {% endif %}
+   <section class="head-section py-4">
+      <div class="row">
+         <div class="col-lg-8">
+            <div class="head-post shadow">
+               {% if featured_post.image %}
+               <img src="{{ featured_post.image.url }}" class="img-fluid col-12" alt="main-blog-img">
+               {% else %}
+               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ featured_post.title }}">
+               {% endif %}
+               <div class="head-post-badge text-center py-3">
+                  <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ featured_post.date }}</a>
+                  <a class="p-2 mb-1 px-3" href="{% url 'view_post' featured_post.id %}">Post</a>
+               </div>
+               <div class="head-post-content">
+                  <div class="row">
+                     <div class="col-3">
+                        <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
+                     </div>
+                     <div class="col-md-9">
+                        <h2>{{ featured_post.title }}</h2>
+                        <h3>{{ featured_post.story |truncatechars:60 }}</h3>
+                     </div>
+                  </div>
+               </div>
             </div>
-    </section>
-    <section class="blog-posts mb-3">
-        <div class="row">
-            <div class="col-md-8">
-                {% for post in posts %}
-                    <article class="blog-post mb-3">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                {% if post.image %}
-                                    <img src="{{ post.image.url }}" class="img-fluid sub-img col-12" alt="main-blog-img">
-                                {% else %}
-                                    <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
-                                {% endif %}
-                            </div>
-                            <div class="col-9">
-                                <h3>{{post.title}}</h3>
-                                <div class="col-11">
-                                <p>
-                                    {{ post.story |truncatechars:60 }} 
-                                </p>
-                                </div>
-                                <div class="badge">
-                                    <a href="{% url 'view_post' post.id %}">Story</a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                {% endfor %}
+         </div>
+         <div class="col-lg-4">
+            {% for post in recent_posts %}
+            <div class="sub-post shadow mb-1">
+               {% if post.image %}
+               <img src="{{ post.image.url }}" class="img-fluid sub-img" alt="main-blog-img">
+               {% else %}
+               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
+               {% endif %}
+               <div class="head-post-badge text-center">
+                  <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>
+                  <a class="p-2 mb-1 px-3" href="{% url 'view_post' post.id %}">Post</a>
+               </div>
+               <div class="head-post-content">
+                  <div class="row">
+                     <div class="col-3">
+                        <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
+                     </div>
+                     <div class="col-md-9">
+                        <h2>{{ post.title }}</h2>
+                        <h3>{{ post.story |truncatechars:20 }}</h3>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <aside class="col-md-4">
-                <div class="row text-center">
-                    <div class="col-4">
-                        <a class="social-links" target="_blank" href="#">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                    </div>
-                    <div class="col-4">
-                        <a class="social-links py-4 w-100" target="_blank" href="#">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                            <span class="sr-only">Youtube</span>
-                        </a>
-                    </div>
-                    <div class="col-4">
-                        <a class="social-links" target="_blank" href="">
-                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                            <span class="sr-only">Facebook</span>
-                        </a>
-                    </div>
-                </div>
-                <h3 class="aside-heading mt-4">Popular Authors</h3>
-                <article class="row author mb-3">
-                    <div class="col-4">
-                        <img src="/media/main_blog_img.jpg" alt="" class="img-fluid rounded-circle">
-                    </div>
-                    <div class="col-8">
-                        <h5 class="m-0">John Doe</h5>
-                        <p class="m-0">About goes here</p>
-                        <div class="socia-links">
-                            <a class="social-links" target="_blank" href="#">
-                                <i class="fab fa-instagram" aria-hidden="true"></i>
-                                <span class="sr-only">Instagram</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                <article class="row author mb-3">
-                    <div class="col-4">
-                        <img src="/media/jill_test.jpg" alt="" class="img-fluid rounded-circle">
-                    </div>
-                    <div class="col-8">
-                        <h5 class="m-0">John Doe</h5>
-                        <p class="m-0">About goes here</p>
-                        <div class="socia-links">
-                            <a class="social-links" target="_blank" href="#">
-                                <i class="fab fa-instagram" aria-hidden="true"></i>
-                                <span class="sr-only">Instagram</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                <article class="row author mb-3">
-                    <div class="col-4">
-                        <img src="/media/jack_test.jpg" alt="" class="img-fluid rounded-circle">
-                    </div>
-                    <div class="col-8">
-                        <h5 class="m-0">John Doe</h5>
-                        <p class="m-0">About goes here</p>
-                        <div class="socia-links">
-                            <a class="social-links" target="_blank" href="#">
-                                <i class="fab fa-instagram" aria-hidden="true"></i>
-                                <span class="sr-only">Instagram</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </aside>
-        </div>
-    </section>
+            {% endfor %}
+         </div>
+      </div>
+   </section>
+   <section class="blog-posts mb-3">
+      <div class="row">
+         <div class="col-md-8">
+            {% for post in posts %}
+            <article class="blog-post mb-3">
+               <div class="row">
+                  <div class="col-sm-3">
+                     {% if post.image %}
+                     <img src="{{ post.image.url }}" class="img-fluid sub-img col-12" alt="main-blog-img">
+                     {% else %}
+                     <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
+                     {% endif %}
+                  </div>
+                  <div class="col-9">
+                     <h3>{{post.title}}</h3>
+                     <div class="col-11">
+                        <p>
+                           {{ post.story |truncatechars:60 }} 
+                        </p>
+                     </div>
+                     <div class="badge">
+                        <a href="{% url 'view_post' post.id %}">Story</a>
+                     </div>
+                  </div>
+               </div>
+            </article>
+            {% endfor %}
+         </div>
+         <aside class="col-md-4">
+            <div class="row text-center">
+               <div class="col-4">
+                  <a class="social-links" target="_blank" href="#">
+                  <i class="fab fa-instagram" aria-hidden="true"></i>
+                  <span class="sr-only">Instagram</span>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a class="social-links py-4 w-100" target="_blank" href="#">
+                  <i class="fab fa-youtube" aria-hidden="true"></i>
+                  <span class="sr-only">Youtube</span>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a class="social-links" target="_blank" href="">
+                  <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                  <span class="sr-only">Facebook</span>
+                  </a>
+               </div>
+            </div>
+            <h3 class="aside-heading mt-4">Popular Authors</h3>
+            <article class="row author mb-3">
+               <div class="col-4">
+                  <img src="/media/main_blog_img.jpg" alt="" class="img-fluid rounded-circle">
+               </div>
+               <div class="col-8">
+                  <h5 class="m-0">John Doe</h5>
+                  <p class="m-0">About goes here</p>
+                  <div class="socia-links">
+                     <a class="social-links" target="_blank" href="#">
+                     <i class="fab fa-instagram" aria-hidden="true"></i>
+                     <span class="sr-only">Instagram</span>
+                     </a>
+                  </div>
+               </div>
+            </article>
+            <article class="row author mb-3">
+               <div class="col-4">
+                  <img src="/media/jill_test.jpg" alt="" class="img-fluid rounded-circle">
+               </div>
+               <div class="col-8">
+                  <h5 class="m-0">John Doe</h5>
+                  <p class="m-0">About goes here</p>
+                  <div class="socia-links">
+                     <a class="social-links" target="_blank" href="#">
+                     <i class="fab fa-instagram" aria-hidden="true"></i>
+                     <span class="sr-only">Instagram</span>
+                     </a>
+                  </div>
+               </div>
+            </article>
+            <article class="row author mb-3">
+               <div class="col-4">
+                  <img src="/media/jack_test.jpg" alt="" class="img-fluid rounded-circle">
+               </div>
+               <div class="col-8">
+                  <h5 class="m-0">John Doe</h5>
+                  <p class="m-0">About goes here</p>
+                  <div class="socia-links">
+                     <a class="social-links" target="_blank" href="#">
+                     <i class="fab fa-instagram" aria-hidden="true"></i>
+                     <span class="sr-only">Instagram</span>
+                     </a>
+                  </div>
+               </div>
+            </article>
+         </aside>
+      </div>
+   </section>
 </div>
 {% endblock %}

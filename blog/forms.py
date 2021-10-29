@@ -16,9 +16,9 @@ class blogForm(forms.ModelForm):
 
         placeholders = {
             'title': 'Blog title',
-            'author': 'Author',
+            'author': '',
             'story': 'Blog content',
-            'image': 'Upload image',
+            'image': '',
         }
 
         self.fields['title'].widget.attrs['autofocus'] = True

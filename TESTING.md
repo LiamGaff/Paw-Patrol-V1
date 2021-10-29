@@ -1,5 +1,7 @@
 # Testing
-As the web page was being built Chrome developer tools were used regularly to ensure that the code was working smoothly. Each section was then tested again every time a new feature was added. Python functions were regularly tested using the print function to ensure the code worked smoothly. Lighthouse in developer tools was also used to check the application's performance. The user stories were always analyzed with each page to ensure the app meet all the requirements.
+As the web page was being built Chrome developer tools were used regularly to ensure that the code was working smoothly. All apps were retested upon completion. Python functions and models were regularly tested using the print function to ensure the code worked smoothly. Lighthouse in developer tools was also used to check the application's performance. The user stories were always analyzed with each page to ensure the app meet all the requirements.
+
+Due to some functional errors when working with stripe some bugs adn errors remain. Due to having a deadline I was unable to fix these bugs in time but I will continue developing the site constantly improving its funtionality and style. Also further testing is required.
 
 ## Code validation
 
@@ -11,7 +13,7 @@ As the web page was being built Chrome developer tools were used regularly to en
 
 * Chrome Devtools to test responsivitiy throughout.
 
-* HTML and CSS Beautifier use format selection in beautify code
+* HTML and CSS Beautifier.
 
 * AutoPrefixer -This project used AutoPrefixer to make sure the css code is valid for all browsers.
  
@@ -23,7 +25,13 @@ As the web page was being built Chrome developer tools were used regularly to en
 
 * The drop down navigation menue wasnt working. This was do to it beeing automatically set to hidden. All I had to do here was remove the hidden class.
 
-* Strip Payment element wouldnt render. This was due to having unessesary code 
+* Strip Payment element wouldnt render. This was due to having unessesary code in the JavaScript for handling the stripe payment.
+
+* I am having further issues with the stripe payment API. I an unable to get the amount from the form to submit the donation.
+
+* The edit animals function isnt working. It is giving me an error of 'str' object has no attribute 'get'. 
+
+* On the deployed site for some reason not all the media and static files are loading. I have manually added all the media files again but this problem still persists.
 
 **Unresolved issues**
 
@@ -36,7 +44,7 @@ As the web page was being built Chrome developer tools were used regularly to en
 
 **Test #1 (Navbar - Logged in)**
 
-Action: Click on each nav button to be redirected to your chosen template.
+Action: Click on each nav button to be redirected to your chosen page.
 
 Before: Nav button clicked on home page(No state change of the button)
 
@@ -48,7 +56,7 @@ Result: Pass
 
 **Test #2 (Navbar - Logged out)**
 
-Action: Click on each to be redirected to your chosen template.
+Action: Click on each to be redirected to your chosen page.
 
 Before: Nav button clicked on home page(No state change of the button)
 
@@ -58,328 +66,271 @@ Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-**Test #1 (Contact-form)**
+**Test #3 (Contact-form)**
 
-Action: Type any book title into search box.
+Action: Fill in required fields.
 
-Before: Search box is inactive with plain white background.
+Before: Fields are filled or notified to fill out.
 
-After: Text fills the search box and shows previously searched words.
+After: Page is refreshed and a message pops up informing you that your message has been recieved.
 
-Result: Pass
+Result: Fail - Toast messages did not displat
 
 -----------------------------------------------------------------------------------------
 
-# Search page
+**Test #3a (Contact-form)**
 
-**Test #1 (Library button - logged out)**
+Action: Fill in required fields.
 
-Action: Click on the "Library" button (plus sign) attached to the searched books.
+Before: Fields are filled or notified to fill out.
+
+After: Page is refreshed and a message pops up informing you that your message has been recieved.
+
+Result:
+
+-----------------------------------------------------------------------------------------
+
+# Animal Page
+
+**Test #1 (Add New Animal Link - logged in as admin)**
+
+Action: Click on the "Add New Animal" link at the top of the page
 
 Before: Hover over button causes no state change.
 
-After: Redirected to login page and flashed message "Login to add book"
+After: Redirected to a page with a form to add new animal.
 
 Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-**Test #2 (Library button - logged in)**
+**Test #2 (Add animal form - logged in as admin)**
 
-Action: Click on the "Library" button (plus sign) attached to the searched books.
+Action: Fill in required fields.
 
-Before: Hover over button causes no state change.
+Before: Fields are filled or notified to fill out.
 
-After: Redirected to profile and book is added to library.
+After: Redirected back to animal page and a message pops up informing you that the animal has been added to the database.
 
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #3 (Review button - logged out)**
-
-Action: Click on the "Review" button under featured book.
-
-Before: Hover over button changes state from orange to light orange.
-
-After: Redirect to review page with a flash message "Login to review book".
-
-Result: Pass
+Result: Fail - Toast messages did not display
 
 -----------------------------------------------------------------------------------------
 
-**Test #4 (Review button - logged In)**
+**Test #2a (Add animal form - logged in as admin)**
 
-Action: Click on the "Review" button under featured book.
+Action: Fill in required fields.
 
-Before: Hover over button changes state from orange to light orange.
+Before: Fields are filled or notified to fill out.
 
-After: Redirect to review page where a review can be submitted
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #5 (View button)**
-
-Action: Click on the "View Book" button under featured book.
-
-Before: Hover over button changes colour from teal to a lighter shade of teal and adds some box shadow.
-
-After: On click a new window is opened that redirects us to the google books api page.
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #5 (Return home link)**
-
-Action: Click on the "Return home: here" link at the bottom of the page.
-
-Before: Hover over blue link. No change in state.
-
-After: On click redirect to home page.
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-# Submit_review
-
-Test #1 (Reviews button - Logged in)
-
-Action: Click on "Reviews" button below book image.
-
-Before: Hover over button changes state from orange to light orange.
-
-After: Redirect to book_review template for the chosen title. There is an option to submit a review.
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #2 (Reviews button - Logged out)**
-
-Action: Click on "Reviews" button below book image.
-
-Before: Hover over button changes state from orange to light orange.
-
-After: Redirect to book_review template for the chosen title. No option to add review and flash message says "Login to add review"
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-# book_review(Logged in)
-
-
-**Test #1 (Range/rating field input)**
-
-Action: Use the slider on the form to pick a number from zero to 10.
-
-Before: Slider is stationary showing no values
-
-After: As the slider is moved up or down a value will appear directly above the slider to show your choice of rating.
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #2 (Add comment input)**
-
-Action: Click on comment input section of form and add some text.
-
-Before: Filler text on the line saying "comment".
-
-After: "Comment" moves above the input field so text can be entered. You can now type in your comments on the chosen title.
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #3 (Submit Review button)**
-
-Action: After form is filled click on "submit review" button.
-
-Before: Hover over button changes colour from teal to a ligther shade of teal and adds some box shadow.
-
-After: On click page refreshes book_review page and the new review can be found in the review section.
-
-Result: Fail - Book review won't submit as it says I have already submitted a review for this title when I have not.
-
------------------------------------------------------------------------------------------
-
-**Test #3b (Submit Review button)**
-
-Action: After form is filled click on "submit review" button.
-
-Before: Hover over button changes colour from teal to a lighter shade of teal and adds some box shadow.
-
-After: On click page refreshes book_review page and the new review can be found in the review section.
+After: Page is refreshed and a message pops up informing you that the animal has been added to the database.
 
 Result: 
 
 -----------------------------------------------------------------------------------------
 
-**Test #4 (Remove button)**
+**Test #3 (Donate button)**
 
-Action: Click on "remove" button to remove your own comments 
+Action: Click on the "Donate" button on the animal card.
 
-Before: Hover over button changes no state. Button remains a teal colour
+Before: Hover over button changes state from red to black.
 
-After: On click review page is refreshed and chosen review has been removed.
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-# Profile
-
-**Test #1 (Update button)**
-
-Action: Click on the "Update" button in the top right corner.
-
-Before: Hover over button changes colour from teal to a lighter shade of teal and adds some box shadow.
-
-After: On click page is redirected to the update profile template.
+After: Redirect to donate page.
 
 Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-**Test #2 (Remove button)**
+**Test #4 (Edit button - logged in as admin)**
 
-Action: Click on "Remove button" below library books.
+Action: Click on the "Edit" button on the animal card.
 
-Before: Hover over button changes state from orange to light orange.
+Before: Hover over button changes state from red to black.
 
-After: Profile page is refreshed and the chosen title has been removed from the user's library.
+After: Redirect to Edit animal form.
+
+Result: Fail - The page will not redirect and is giving an error message.
+
+-----------------------------------------------------------------------------------------
+
+**Test #4a (Edit button - logged in as admin)**
+
+Action: Click on the "Edit" button on the animal card.
+
+Before: Hover over button changes state from red to black.
+
+After: Redirect to Edit animal form.
+
+Result: 
+
+-----------------------------------------------------------------------------------------
+
+**Test #5 (Delete animal - logged in as admin)**
+
+Action: Click on the "remove" animal link on the animal card.
+
+Before: Hover over button changes state from red to black.
+
+After: On click the page refreshes and the animal has been removed.
 
 Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-Test #3 (Home page button)
+# Blog Page
 
-Action: Click on "Add some books to your collection: search" at the bottom of the page
+**Test #1 (Reviews button - Logged in as admin)**
 
-Before: Hover over blue link. No change in state.
+Action: Click on "Add new post" button at the top of the page.
 
-After: On click redirect to home page.
+Before: Hover over button changes state adding a white underline.
 
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-# Update Profile(still under development)
-
-**Test #1 (Profile page button)**
-
-Action: Click on "Return to profile: Profile" at the bottom of the page
-
-Before: Hover over blue link. No change in state.
-
-After: On click redirect to profile page.
+After: Redirect to redirect to blog form page.
 
 Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-**Test #2 (Drop down selection)**
+**Test #2 (Blog for - Logged oin as admin)**
 
-Action: Click on drop down menu on the form.
+Action: Fill in required fields.
 
-Before: Hover over drop down arrow where filler text says "choose your option"
+Before: Fields are filled or notified to fill out.
 
-After: On click three options drop down and when one is selected it will replace the filler text.
+After: Page is redirected back to blog page and a new post is added to the page.
 
 Result: pass
 
------------------------------------------------------------------------------------------
-
-**Test #3 (Update button)**
-
-Action: After form is filled click on "Update" button.
-
-Before: Hover over button changes colour from teal to a ligther shade of teal and adds some box shadow.
-
-After: On click redirect to profile page where profile picture is updated.
-
-Result: Fail - This feature has not been fully built yet.
 
 -----------------------------------------------------------------------------------------
 
-# Registration
+**Test #3 (Post/Story links)**
 
-**Test #1 (Name input)**
+Action: Click on the "remove" animal link on the animal card.
 
-Action: Enter name into name input at the top of the form.
+Before: Hover over button changes state from orange to white.
 
-Before: Hover over black input line, no change in state.
-
-After: On click input line turns green and text can now be entered
+After: On click redirect to page to view full blog post.
 
 Result: Pass
 
------------------------------------------------------------------------------------------
-
-**Test #2 (Email input)**
-
-Action: Enter email into email input in the middle of the form.
-
-Before: Hover over black input line, no change in state.
-
-After: On click input line turns green and text can now be entered
-
-Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-**Test #3 (Password input)**
+**Test #4 (Requires further testing)**
 
-Action: Enter Password into password input at the end of the form.
-
-Before: Hover over black input line, no change in state.
-
-After: On click input line turns green and text can now be entered. The text here is hidden, presented as black dots.
-
-Result: Pass
+Further testing is to be done on the blog page as it is updated and made fully functional.
 
 -----------------------------------------------------------------------------------------
 
-**Test #4 (Sign up button)**
+# Profile Page(Logged in)
 
-Action: After form is filled click on "Sign up" button.
+**Test #1 (Change password button)**
 
-Before: Hover over button changes colour from teal to a lighter shade of teal and adds some box shadow.
+Action: Click on "Change password" link uder the user details.
 
-After: On click redirect to new profile page with an empty library
+Before: Hover over button changes state from red to black.
 
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #4b (Sign up button - existing account)**
-
-Action: After form is filled click on "Sign up" button.
-
-Before: Hover over button changes colour from teal to a ligther shade of teal and adds some box shadow.
-
-After: On click redirect back to the sign up page and flashed message "An account with this email already exists"
+After: On click page redirects to the change passwoed form.
 
 Result: Pass.
 
 -----------------------------------------------------------------------------------------
 
-Test #5 (Login page button)
+**Test #2 (Change password form)**
 
-Action: Click on "Have an account? Log In" at the bottom of the page.
+Action: Fill in required fields.
 
-Before: Hover over blue link. No change in state.
+Before: Fields are filled or notified to fill out.
 
-After: On click redirect to login page.
+After: Page is refreshed and the password has been changed.
 
-Result: Pass 
+Result: pass
+
+-----------------------------------------------------------------------------------------
+
+**Test #3 (Payment Form)**
+
+Action: Select donation amount and add card details.
+
+Before: Fields are filled or notified to fill out.
+
+After: On click rredirect to succes page and pop up message is shown.
+
+Result: Fail - Payment system isnt working.
+
+-----------------------------------------------------------------------------------------
+
+**Test #3a (Payment Form)**
+
+Action: Select donation amount and add card details.
+
+Before: Fields are filled or notified to fill out.
+
+After: On click rredirect to succes page and pop up message is shown.
+
+Result: Fail - Payment system isnt working.
+
+-----------------------------------------------------------------------------------------
+
+# Donate page
+
+**Test #1 (Payment Form - Logged in)**
+
+Action: Select donation amount and add card details.
+
+Before: Fields are filled or notified to fill out.
+
+After: On click rredirect to succes page and pop up message is shown.
+
+Result: Fail - Payment system isnt working.
+
+-----------------------------------------------------------------------------------------
+
+**Test #2 (Payment Form - Logged out)**
+
+Action: Click on signup link
+
+Before: Hover over button changes state from red to black.
+
+After: On click page redirects to the signup form.
+
+Result: Pass.
+
+-----------------------------------------------------------------------------------------
+
+**Test #3 (Payment Form - Logged out)**
+
+Action: Click on "Login" link.
+
+Before: Hover over button changes state from red to black.
+
+After: On click page redirects to the login form.
+
+Result: Pass.
+
+-----------------------------------------------------------------------------------------
+
+**Test #2 (Profile Page link - logged out)**
+
+Action: Click on "Profile Page" link.
+
+Before: Hover over button changes state from red to black.
+
+After: On click page redirects to the login form.
+
+Result: Pass.
+
+-----------------------------------------------------------------------------------------
+
+**Test #3 (Profile Page link - logged in)**
+
+Action: Click on "Profile Page" link.
+
+Before: Hover over button changes state from red to black.
+
+After: On click page redirects to the profile page.
+
+Result: Pass.
 
 -----------------------------------------------------------------------------------------
 
@@ -387,58 +338,40 @@ Result: Pass
 
 **Test #1 (Email input)**
 
-Action: Enter email into email input in the middle of the form.
+Action: Enter email/username into email iinto the formform.
 
-Before: Hover over black input line, no change in state.
+Before: Hover over "signin" button, state change from white to black. Required fileds are filled or requested.
 
-After: On click input line turns green and text can now be entered
-
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #3 (Password input)**
-
-Action: Enter Password into password input at the end of the form.
-
-Before: Hover over black input line, no change in state.
-
-After: On click input line turns green and text can now be entered. The text here is hidden, presented as black dots.
+After: On click redirect to profile page if user exists
 
 Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-**Test #4 (login button)**
+# Logout
 
-Action: After form is filled click on "Login" button.
+**Test #1 (Email input)**
 
-Before: Hover over button changes colour from teal to a lighter shade of teal and adds some box shadow.
+Action: On logout page click on logout button
 
-After: On click redirect to users profile page.
+Before: Hover over "signin" button, state change from white to black.
 
-Result: Pass
-
------------------------------------------------------------------------------------------
-
-**Test #4b (Sign up button - wrong credentials)**
-
-Action: After form is filled click on "Login" button.
-
-Before: Hover over button changes colour from teal to a lighter shade of teal and adds some box shadow.
-
-After: On click redirect back to the Login page and flashed message "Incorrect Email and/or Password"
+After: On click redirect to home page and logged out
 
 Result: Pass
 
 -----------------------------------------------------------------------------------------
 
-**Test #5 (Sign up page button)**
+# Register
 
-Action: Click on "Not registered? Sign up" at the bottom of the page.
+**Test #1 (Email input)**
 
-Before: Hover over blue link. No change in state.
+Action: Enter email/username/name/password on the form.
 
-After: On click redirect to sign up page.
+Before: Hover over "signup" button, state change from white to black. Required fileds are filled or requested.
+
+After: On click redirect to new profile page displaying user's details.
 
 Result: Pass
+
+-----------------------------------------------------------------------------------------

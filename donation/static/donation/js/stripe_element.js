@@ -4,17 +4,18 @@ var donationData = {
   currency: "eur",
 };
 // Disable the button until we have Stripe set up on the page
+
 document.querySelector("button").disabled = true;
 fetch("create_payment_intent/", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(donationData)
-}).then(function(result) {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(donationData)
+  }).then(function (result) {
     return result.json();
   })
-  .then(function(data) {
+  .then(function (data) {
     var elements = stripe.elements();
     var style = {
       base: {
@@ -32,7 +33,9 @@ fetch("create_payment_intent/", {
         iconColor: "#fa755a"
       }
     };
-    var card = elements.create("card", { style: style });
+    var card = elements.create("card", {
+      style: style
+    });
     // Stripe injects an iframe into the DOM
     card.mount("#card-element");
     card.on("change", function (event) {
@@ -41,24 +44,24 @@ fetch("create_payment_intent/", {
       document.querySelector("#card-error").textContent = event.error ? event.error.message : "";
     });
     var form = document.getElementById("payment-form");
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", function (event) {
       event.preventDefault();
       // Complete payment when the submit button is clicked
       payWithCard(stripe, card, data.clientSecret, data.amount);
     });
   });
+
 // Calls stripe.confirmCardPayment
 // If the card requires authentication Stripe shows a pop-up modal to
 // prompt the user to enter authentication details without leaving your page.
-var payWithCard = function(stripe, card, clientSecret, amount) {
-  // loading(true);
+var payWithCard = function (stripe, card, clientSecret, amount) {
   stripe
     .confirmCardPayment(clientSecret, {
       payment_method: {
         card: card
       }
     })
-    .then(function(result) {
+    .then(function (result) {
       if (result.error) {
         // Show error to your customer
         showError(result.error.message);
@@ -66,20 +69,12 @@ var payWithCard = function(stripe, card, clientSecret, amount) {
         // The payment succeeded!
         orderComplete(result.paymentIntent.id);
         alert("Thanks for your donation");
-        // location.href="success/"
+        location.href="success/"
       }
     });
 };
-/* ------- UI helpers ------- */
-// Shows a success message when the payment is complete
-var orderComplete = function(paymentIntentId) {
-  // loading(false);
+var orderComplete = function (paymentIntentId) {
 
-  console.log("TESTING: "+paymentIntentId);
-  // document.querySelector(".result-message a").setAttribute(
-  //     "href",
-  //     "https://dashboard.stripe.com/test/payments/"
-  //   );
-  // document.querySelector(".result-message").classList.remove("hidden");
+  console.log("TESTING: " + paymentIntentId);
   document.querySelector("button").disabled = true;
-};
+}
