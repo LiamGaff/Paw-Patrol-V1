@@ -27,7 +27,7 @@ p{
 
 img{
     filter: grayscale(10%) brightness(0.9);
-    object-fit: contain;
+    object-fit: cover;
 }
 
 a{
@@ -323,6 +323,7 @@ footer{
 .btn-black {
     background: black;
     color: white;
+    border-color: black;
 }
 
 .btn-outline-black {
