@@ -31,7 +31,7 @@ Due to some functional errors when working with stripe some bugs adn errors rema
 
 * The edit animals function isnt working. It is giving me an error of 'str' object has no attribute 'get'. 
 
-* On the deployed site for some reason not all the media and static files are loading. I have manually added all the media files again but this problem still persists.
+* On the deployed site for some reason not all the media and static files are loading. I have manually added all the media files again but this problem still persists. This bug was due to my settings.py missing the "django.template.context_processors.media" in the context_processors.Melinda Zhang was a great help figuring this out.
 
 **Unresolved issues**
 

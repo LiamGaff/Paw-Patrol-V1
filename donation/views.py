@@ -30,28 +30,23 @@ def donate(request):
 @csrf_exempt
 def create_payment_intent(request):
     if request.method == 'POST':
-        # print("HERE")
         data = json.loads(request.body)
-        amount = 10
-        value = request.POST.get('amount', '')
-        if value is None:
-            print(value)
-        else:
-            print("Value: "+value)
+        # amount = data['amount']
+        amount = int(data['amount'])
+        if amount:
+            customer = stripe.Customer.create(
+                    name=request.user.get_username(),
+                    email=request.user.email,
+                    )
 
-        customer = stripe.Customer.create(
-                name=request.user.get_username(),
-                email=request.user.email,
-                )
-
-        intent = stripe.PaymentIntent.create(
-            customer=customer,
-            payment_method_types=['card'],
-            amount=amount*100,
-            currency=data['currency'],
-        )
-        return JsonResponse({'publishableKey': publishableKey,
-                            'clientSecret': intent['client_secret']})
+            intent = stripe.PaymentIntent.create(
+                customer=customer,
+                payment_method_types=['card'],
+                amount=amount*100,
+                currency='eur',
+            )
+            return JsonResponse({'publishableKey': publishableKey,
+                                'clientSecret': intent['client_secret']})
 
 
 def success_msg(request):

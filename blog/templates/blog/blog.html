@@ -54,7 +54,7 @@
                {% if post.image %}
                <img src="{{ post.image.url }}" class="img-fluid sub-img" alt="main-blog-img">
                {% else %}
-               <img src="{{ MEDIA_URL }{{ MEDIA_URL }}no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
+               <img src="{{ MEDIA_URL }}no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
                {% endif %}
                <div class="head-post-badge text-center">
                   <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>

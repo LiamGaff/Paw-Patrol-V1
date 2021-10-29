@@ -1,0 +1,40 @@
+>
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'donation/css/donate.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+<div class="row d-flex justify-content-center">
+   <div class="row d-flex justify-content-center">
+      <span class="border-arrow-down-index left mt-0"></span>
+   </div>
+   <div class="row top-heading">
+      <div class="col-12 mb-3 text-center">
+         <h2 class="headings">Donate</h2>
+         <i class="fas fa-dog headings"></i>
+      </div>
+   </div>
+   <div class="col-11 donate-bg mt-5 mb-4">
+      <div class="row justify-content-around mb-5">
+         <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-5 mb-3">
+            <P class="info-text text-center">You can make a one off donation using the form provided. If you have not already set up an account you will be asked to do so before you donate.
+               This allows you to keep track of and manage your ongoing payments. This can all be done from your <a href="{% url 'profile' %}">profile page</a>.
+            </P>
+         </div>
+         <span class="border-arrow right d-sm-none d-md-block d-none d-sm-block"></span>
+         <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg payment-card mb-3">
+           <form id="payment-form">
+            <div id="payment-element">
+                <!--Stripe.js injects the Payment Element-->
+            </div> 
+                <button id="submit">
+                <div class="spinner hidden" id="spinner"></div>
+                <span id="button-text">Pay now</span>
+                </button>
+                <div id="payment-message" class="hidden"></div>
+            </form>
+      </div>
+   </div>
+</div>
