@@ -29,7 +29,7 @@
                {% if featured_post.image %}
                <img src="{{ featured_post.image.url }}" class="img-fluid col-12" alt="main-blog-img">
                {% else %}
-               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ featured_post.title }}">
+               <img src="{{ MEDIA_URL }}no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ featured_post.title }}">
                {% endif %}
                <div class="head-post-badge text-center py-3">
                   <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ featured_post.date }}</a>
@@ -38,7 +38,7 @@
                <div class="head-post-content">
                   <div class="row">
                      <div class="col-3">
-                        <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
+                        <img src="{{ MEDIA_URL }}jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
                      </div>
                      <div class="col-md-9">
                         <h2>{{ featured_post.title }}</h2>
@@ -54,7 +54,7 @@
                {% if post.image %}
                <img src="{{ post.image.url }}" class="img-fluid sub-img" alt="main-blog-img">
                {% else %}
-               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
+               <img src="{{ MEDIA_URL }{{ MEDIA_URL }}no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
                {% endif %}
                <div class="head-post-badge text-center">
                   <a class="p-2 mb-1 px-3" href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>
@@ -63,7 +63,7 @@
                <div class="head-post-content">
                   <div class="row">
                      <div class="col-3">
-                        <img src="/media/jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
+                        <img src="{{ MEDIA_URL }}jill_test.jpg" alt="Author" class="img-fluid rounded-circle">
                      </div>
                      <div class="col-md-9">
                         <h2>{{ post.title }}</h2>
@@ -86,7 +86,7 @@
                      {% if post.image %}
                      <img src="{{ post.image.url }}" class="img-fluid sub-img col-12" alt="main-blog-img">
                      {% else %}
-                     <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
+                     <img src="{{ MEDIA_URL }no_image.jpg" class="card-img-top posts-img img-fluid" alt="{{ post.title }}">
                      {% endif %}
                   </div>
                   <div class="col-9">
@@ -128,7 +128,7 @@
             <h3 class="aside-heading mt-4">Popular Authors</h3>
             <article class="row author mb-3">
                <div class="col-4">
-                  <img src="/media/main_blog_img.jpg" alt="" class="img-fluid rounded-circle">
+                  <img src="{{ MEDIA_URL }}main_blog_img.jpg" alt="" class="img-fluid rounded-circle">
                </div>
                <div class="col-8">
                   <h5 class="m-0">John Doe</h5>
@@ -143,7 +143,7 @@
             </article>
             <article class="row author mb-3">
                <div class="col-4">
-                  <img src="/media/jill_test.jpg" alt="" class="img-fluid rounded-circle">
+                  <img src="{{ MEDIA_URL }}jill_test.jpg" alt="" class="img-fluid rounded-circle">
                </div>
                <div class="col-8">
                   <h5 class="m-0">John Doe</h5>
@@ -158,7 +158,7 @@
             </article>
             <article class="row author mb-3">
                <div class="col-4">
-                  <img src="/media/jack_test.jpg" alt="" class="img-fluid rounded-circle">
+                  <img src="{{ MEDIA_URL }}jack_test.jpg" alt="" class="img-fluid rounded-circle">
                </div>
                <div class="col-8">
                   <h5 class="m-0">John Doe</h5>

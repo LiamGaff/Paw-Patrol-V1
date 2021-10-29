@@ -35,7 +35,7 @@
             {% if volunteer.image %}
             <img src="{{ volunteer.image.url }}" class="card-img-top volumteer-img img-fluid" alt="{{ volnteer.name }}">
             {% else %}
-            <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top volumteer-img img-fluid" alt="{{ volnteer.name }}">
+            <img src="{{ MEDIA_URL }}no_image.jpg" class="card-img-top volumteer-img img-fluid" alt="{{ volnteer.name }}">
             {% endif %}
             <div class="card-body">
                <h4 class="card-title sub-headings">{{ volunteer.friendly_name }}</h4>

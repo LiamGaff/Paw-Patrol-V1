@@ -51,7 +51,7 @@
                {% if animal.image %}
                <img src="{{ animal.image.url }}" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
                {% else %}
-               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
+               <img src="{{ MEDIA_URL }}no_image.jpg" class="card-img-top animals-img img-fluid" alt="{{ animal.name }}">
                {% endif %}
             </div>
             <div class="col-md-8">
@@ -99,7 +99,7 @@
                {% if animal.image %}
                <img src="{{ animal.image.url }}" class="card-img-top animals-img" alt="{{ animal.name }}">
                {% else %}
-               <img src="{{ MEDIA_URL }}media/no_image.jpg" class="card-img-top animals-img" alt="{{ animal.name }}">
+               <img src="{{ MEDIA_URL }}no_image.jpg" class="card-img-top animals-img" alt="{{ animal.name }}">
                {% endif %}
             </div>
          </div>
