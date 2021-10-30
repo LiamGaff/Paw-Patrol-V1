@@ -44,8 +44,8 @@ def create_checkout_session(request):
                 'card',
             ],
             mode='payment',
-            success_url=request.build_absolute_uri(reverse('https://paw-patrol-lg.herokuapp.com/donate/success/')),
-            cancel_url=request.build_absolute_uri(reverse('https://paw-patrol-lg.herokuapp.com/'))
+            success_url=request.build_absolute_uri(reverse('paw-patrol-lg.herokuapp.com/donate/success/')),
+            cancel_url=request.build_absolute_uri(reverse('paw-patrol-lg.herokuapp.com/'))
         )
 
         return redirect(session.url, code=303)

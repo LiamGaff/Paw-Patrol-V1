@@ -35,6 +35,7 @@ Due to some functional errors when working with stripe some bugs adn errors rema
 
 **Unresolved issues**
 
+* The edit function still isnt working in the animals template. I will comment it out for now and continue to work on it.
 
 **continued testing**
 
