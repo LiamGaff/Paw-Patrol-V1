@@ -1,6 +1,10 @@
 # Paw-Patrol
 PawPatrol is a web application designed to model a charitable organization that deals with housing pets for owners that can no longer take care of their animals due to medical reasons. This website was built as part of my fourth and final milestone project for CodeInstitutes diploma in software development. You can visit the deployed site from [here](https://paw-patrol-lg.herokuapp.com/).
 
+
+## Development Notes
+Due to problems with my payment system I was unable to get the webpage fully operational before my project deadline. The Edit animals function currently can't be used this was also due to time constraints.
+
 # UX
 ## User Stories
 As a user I would like:

@@ -5,100 +5,127 @@
 {% endblock %}
 {% block content %}
 <div class="container-fluid">
-<div class="row d-flex justify-content-center">
    <div class="row d-flex justify-content-center">
-      <span class="border-arrow-down-index left mt-0"></span>
+      <div class="row d-flex justify-content-center">
+         <span class="border-arrow-down-index left mt-0"></span>
+      </div>
+      <div class="row top-heading">
+         <div class="col-12 mb-3 text-center">
+            <h2 class="headings">Donate</h2>
+            <i class="fas fa-dog headings"></i>
+         </div>
+      </div>
+      <div class="col-11 donate-bg mt-5 mb-4">
+         <div class="row justify-content-around mb-5">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-5 mb-3">
+               <P class="info-text text-center">You can make a one off donation using the form provided. If you have not
+                  already set up an account you will be asked to do so before you donate.
+                  This allows you to keep track of and manage your ongoing payments. This can all be done from your <a
+                     href="{% url 'profile' %}">profile page</a>.
+               </P>
+            </div>
+            <span class="border-arrow right d-sm-none d-md-block d-none d-sm-block"></span>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg payment-card mb-3">
+               {% if request.user.is_authenticated %}
+               {% csrf_token %}
+               <form action="{% url 'checkout' %}" method="POST">
+                     <label class="info-text" for="amount">Choose Amount:</label>
+                    <br>
+                    <br>
+                    <div class="col value-wrapper">
+                        <input class="hidebx" type="radio" name="donate-value" id="1" value="5">
+                        <label for="1" class="radio-btn col-6">
+                            <div class="display-box">
+                                <div class="d-value">$5</div>
+                            </div>
+                        </label>
+                        <input class="hidebx" type="radio" name="donate-value" id="2" value="20">
+                        <label for="2" class="radio-btn">
+                            <div class="display-box">
+                                <div class="d-value">$20</div>
+                            </div>
+                        </label>
+                        <input class="hidebx" type="radio" name="donate-value" id="3" value="50">
+                        <label for="3" class="radio-btn">
+                            <div class="display-box">
+                                <div class="d-value">$50</div>
+                            </div>
+                        </label>
+                        <input class="hidebx" type="radio" name="donate-value" id="4" value="100">
+                        <label for="4" class="radio-btn">
+                            <div class="display-box">
+                                <div class="d-value">$100</div>
+                            </div>
+                        </label>
+                    </div>
+                     <button type="submit" id="checkout-button">Donate</button>
+                  </form>
+                  <p>When You chose amount and click on donate you will be redirected to the payment form.</p>
+                  {% else %}
+                  <div class="row justify-content-center ">
+                     <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply
+                        <a href="{% url 'account_login' %}">login</a> to make a donation.</h4>
+                  </div>
+                  {% endif %}
+            </div>
+         </div>
+      </div>
    </div>
-   <div class="row top-heading">
-      <div class="col-12 mb-3 text-center">
-         <h2 class="headings">Donate</h2>
+   <div class="row mb-0 mt-4 row-heading">
+      <div class="col-12 my-5 text-center mb-2">
+         <h2 class="headings">
+            <bold>What your donation means</bold>
+         </h2>
          <i class="fas fa-dog headings"></i>
       </div>
    </div>
-   <div class="col-11 donate-bg mt-5 mb-4">
-      <div class="row justify-content-around mb-5">
-         <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-5 mb-3">
-            <P class="info-text text-center">You can make a one off donation using the form provided. If you have not already set up an account you will be asked to do so before you donate.
-               This allows you to keep track of and manage your ongoing payments. This can all be done from your <a href="{% url 'profile' %}">profile page</a>.
-            </P>
-         </div>
-         <span class="border-arrow right d-sm-none d-md-block d-none d-sm-block"></span>
-         <div class="col-12 col-sm-6 col-md-6 col-lg-6 card-bg payment-card mb-3">
-            {% if request.user.is_authenticated %}
-            <form action="{% url 'create_payment_intent' %}" onsubmit="return submitForm()" method="POST" id="payment-form">
-               {% csrf_token %}
-                  <label class="info-text" for="amount">Choose Amount:</label>
-                  <p>You can donate between €5 to €100 at a time.</p>
-                        {% csrf_token %}
-                        {% for field in form %}
-                        {{ field }}
-                        {% endfor %}
-                     <div id="payment-element" class="mt-3">
-                        <!-- stripe element -->
-                     </div>
-                     <button class="btn pay-btn mt-3 mb-4" id="submit" onclick="initialize()">
-                        <div class="spinner hidden" id="spinner"></div>
-                        <span id="button-text">Pay now</span>
-                     </button>
-                     <div id="payment-message" class="hidden"></div>
-            </form>
-         </div>
-            {% else %}
-            <div class="row justify-content-center ">
-               <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply <a href="{% url 'account_login' %}">login</a> to make a donation.</h4>
-            </div>
-            {% endif %} 
-         </div>
+   <div class="row justify-content-center">
+      <div class="col-4 mb-3">
+         <img src="{{ MEDIA_URL }}max_test.jpg" class="donate-img w-100" alt="Image of a dog">
       </div>
    </div>
-</div>
-<div class="row mb-0 mt-4 row-heading">
-   <div class="col-12 my-5 text-center mb-2">
-      <h2 class="headings">
-         <bold>What your donation means</bold>
-      </h2>
-      <i class="fas fa-dog headings"></i>
+   <div class="row justify-content-center mt-1">
+      <div class="col-4 mb-3">
+         <h3 class="sub-headings text-center">Animal Housing</h3>
+      </div>
    </div>
-</div>
-<div class="row justify-content-center">
-   <div class="col-4 mb-3">
-      <img src="{{ MEDIA_URL }}max_test.jpg" class="donate-img w-100" alt="Image of a dog">
+   <div class="row justify-content-center">
+      <div class="col-10 mb-3">
+         <p class="info-text text-center text-border">
+            Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or
+            nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to
+            take care of them.
+            We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where
+            ever they may be. We our a non profit organisation and all of our voluteers give up their homes for these
+            lost animal out of the kindess of their hearts.
+         </p>
+      </div>
    </div>
-</div>
-<div class="row justify-content-center mt-1">
-   <div class="col-4 mb-3">
-      <h3 class="sub-headings text-center">Animal Housing</h3>
+   <hr class="dotted-sml">
+   <div class="row justify-content-center mt-5">
+      <div class="col-4 mb-3">
+         <img src="{{ MEDIA_URL }}Donate_img1.jpg" class="donate-img w-100" alt="Image of a man with a dog">
+      </div>
    </div>
-</div>
-<div class="row justify-content-center">
-   <div class="col-10 mb-3">
-      <p class="info-text text-center text-border">
-         Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to take care of them.
-         We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where ever they may be. We our a non profit organisation and all of our voluteers give up their homes for these lost animal out of the kindess of their hearts.
-      </p>
+   <div class="row justify-content-center mt-1">
+      <div class="col-4 mb-3">
+         <h3 class="sub-headings text-center">Owner Visits</h3>
+      </div>
    </div>
-</div>
-<hr class="dotted-sml">
-<div class="row justify-content-center mt-5">
-   <div class="col-4 mb-3">
-      <img src="{{ MEDIA_URL }}Donate_img1.jpg" class="donate-img w-100" alt="Image of a man with a dog">
+   <div class="row justify-content-center">
+      <div class="col-10 mb-3">
+         <p class="info-text text-center text-border">
+            Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or
+            nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to
+            take care of them.
+            We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where
+            ever they may be. We our a non profit organisation and all of our voluteers give up their homes for these
+            lost animal out of the kindess of their hearts.
+         </p>
+      </div>
    </div>
-</div>
-<div class="row justify-content-center mt-1">
-   <div class="col-4 mb-3">
-      <h3 class="sub-headings text-center">Owner Visits</h3>
-   </div>
-</div>
-<div class="row justify-content-center">
-   <div class="col-10 mb-3">
-      <p class="info-text text-center text-border">
-         Here at PawPatrol we help out those who can no longer look after their pets. People in medical care or nursing homes may not be able to bring their fury friends along with them so our trusted team steps in to take care of them.
-         We provide these animals a nice home to stay in aswell as daily visits to their best friends(owners) where ever they may be. We our a non profit organisation and all of our voluteers give up their homes for these lost animal out of the kindess of their hearts.
-      </p>
-   </div>
-</div>
-{% endblock %}
-{% block postloadjs %}
-{{ block.super }}
-<script src="{% static 'donation/js/stripe_element.js' %}"></script>
-{% endblock %}
+   {% endblock %}
+   {% block postloadjs %}
+   {{ block.super }}
+   <script src="{% static 'donation/js/checkout.js' %}"></script>
+   {% endblock %}
