@@ -1,14 +1,11 @@
 import os
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from requests.exceptions import HTTPError
+from django.http import HttpResponse
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
-import json
-from django.http import HttpResponse, JsonResponse
-
-from .forms import Amount
+from .models import Donation
 
 
 import stripe
@@ -30,11 +27,11 @@ def donate(request):
 def create_checkout_session(request):
     if request.method == 'POST':
         amount = request.POST.get('donate-value')
-        
+        amount = int(amount)
         session = stripe.checkout.Session.create(
             line_items=[
                 {
-                    'amount': int(amount)*100,
+                    'amount': amount*100,
                     'quantity': 1,
                     'currency': 'eur',
                     'name': 'Donation'
@@ -44,16 +41,23 @@ def create_checkout_session(request):
                 'card',
             ],
             mode='payment',
-            success_url=request.build_absolute_uri(reverse('success')),
+            success_url=request.build_absolute_uri(reverse('success', args=[amount])),
             cancel_url=request.build_absolute_uri(reverse('home'))
         )
+    else:
+        messages.error(request, 'Unable to accept payment at this time')
 
-        return redirect(session.url, code=303)
+    return redirect(session.url, code=303)
 
 
-def success_msg(request):
+def success_msg(request, args):
+        
+    amount = args
+    donation = Donation(name=request.user.get_username(),
+                        email=request.user.email, amount=amount*100)
+    donation.save()
 
-    return render(request, "donation/success.html")
+    return render(request, "donation/success.html", {'amount':amount})
 
 
 @csrf_exempt

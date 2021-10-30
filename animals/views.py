@@ -75,7 +75,7 @@ def edit_animal(request, animal_id):
             messages.error(request, 'Unable to update animal. Please make sure you have filled in all the required fields.')
     else:
         form = addAnimalForm(instance=animal)
-        messages.info(request, f'You are editing {animal.name}')
+        messages.success(request, f'You are editing {animal.name}')
 
     template = 'animals/edit_animal.html'
     context = {
