@@ -44,8 +44,8 @@ def create_checkout_session(request):
                 'card',
             ],
             mode='payment',
-            success_url=request.build_absolute_uri(reverse('paw-patrol-lg.herokuapp.com/donate/success/')),
-            cancel_url=request.build_absolute_uri(reverse('paw-patrol-lg.herokuapp.com/'))
+            success_url=request.build_absolute_uri(reverse('success')),
+            cancel_url=request.build_absolute_uri(reverse('home'))
         )
 
         return redirect(session.url, code=303)
@@ -61,7 +61,7 @@ def stripe_webhook(request):
 
     print('WEBHOOK!')
     # You can find your endpoint's secret in your webhook settings
-    endpoint_secret = 'whsec_3Uy1OKnA7JSh4YV7Xhr2KgPLSiPH3jEI'
+    endpoint_secret = os.environ.get('STRIPE_WH_SECRET')
 
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
