@@ -54,7 +54,7 @@ def success_msg(request, args):
         
     amount = args
     donation = Donation(name=request.user.get_username(),
-                        email=request.user.email, amount=amount*100)
+                        email=request.user.email, amount=amount)
     donation.save()
 
     return render(request, "donation/success.html", {'amount':amount})

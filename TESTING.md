@@ -37,6 +37,8 @@ Due to some functional errors when working with stripe some bugs adn errors rema
 
 * The edit function still isnt working in the animals template. I will comment it out for now and continue to work on it.
 
+* The payment form requires a lot more validation and defensive coding but I only completed it the evening before my deadline. Further work will be done to secure it.
+
 **continued testing**
 
 # Manual Testing
