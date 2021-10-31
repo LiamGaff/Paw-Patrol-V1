@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Donation
-
+from .forms import Amount
 
 import stripe
 
@@ -17,8 +17,11 @@ publishableKey = os.environ.get('STRIPE_PUBLIC_KEY')
 def donate(request):
     """ return doante page """
 
+    amounts = Amount()
+
     context = {
-        'stripe_public_key': publishableKey
+        'stripe_public_key': publishableKey,
+        'amounts': amounts
     }
     return render(request, "donation/donate.html", context)
 
@@ -26,7 +29,7 @@ def donate(request):
 @csrf_exempt
 def create_checkout_session(request):
     if request.method == 'POST':
-        amount = request.POST.get('donate-value')
+        amount = request.POST.get('donate_value')
         amount = int(amount)
         session = stripe.checkout.Session.create(
             line_items=[
@@ -51,7 +54,9 @@ def create_checkout_session(request):
 
 
 def success_msg(request, args):
-        
+    """ Return success page, display donation amount and 
+        save user donation when they reach the success page
+     """
     amount = args
     donation = Donation(name=request.user.get_username(),
                         email=request.user.email, amount=amount)
@@ -62,7 +67,7 @@ def success_msg(request, args):
 
 @csrf_exempt
 def stripe_webhook(request):
-
+    """ Web hook endpoint for stripe """
     print('WEBHOOK!')
     # You can find your endpoint's secret in your webhook settings
     endpoint_secret = os.environ.get('STRIPE_WH_SECRET')

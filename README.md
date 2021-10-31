@@ -3,7 +3,10 @@ PawPatrol is a web application designed to model a charitable organization that 
 
 
 ## Development Notes
-Due to problems with my payment system I was unable to get the webpage fully operational before my project deadline. The Edit animals function currently can't be used this was also due to time constraints.
+Due to problems with my payment system I was unable to get the webpage fully operational before my project deadline. The Edit animals function currently can't be used this was also due to time constraints. The payment form is not as secure as I would like and so further validation is required.
+
+**Credentials for logging in**
+TestAdmin - Milestone4
 
 # UX
 ## User Stories
@@ -51,7 +54,7 @@ Last is the contact section. This is divided into a general contact info section
 
 **Donate**
 
-The donate page has two sections. The most important section is the donate card. This is formed with a stripe element that allows users to submit a donation via card payment. Users need to set up a profile to donate as this allows them to keep track of all their donations. Previously the amount was chosen through set amounts attached to radio buttons. This caused issues so the amount is now chosen through a number input.
+The donate page has two sections. The most important section is the donate card. Here a user selects a donation amount and is then directed to stripe checkout. Users need to set up a profile to donate as this allows them to keep track of all their donations. Previously the amount was chosen through set amounts attached to radio buttons. This caused issues so the amount is now chosen through a number input.
 
 The other section just gives a little more info of what the user's donation will contribute to the cause of the organization.
 

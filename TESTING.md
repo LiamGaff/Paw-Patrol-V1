@@ -39,6 +39,10 @@ Due to some functional errors when working with stripe some bugs adn errors rema
 
 * The payment form requires a lot more validation and defensive coding but I only completed it the evening before my deadline. Further work will be done to secure it.
 
+* The log in through Facebook isn't fully working. This will have to be investigated further.
+
+* Toast messages are not showing up. I am still looking for the source of this issue
+
 **continued testing**
 
 # Manual Testing

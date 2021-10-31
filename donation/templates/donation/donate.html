@@ -29,38 +29,13 @@
                {% if request.user.is_authenticated %}
                {% csrf_token %}
                <form action="{% url 'checkout' %}" method="POST">
+                  {% load crispy_forms_tags %}
                      <label class="info-text" for="amount">Choose Amount:</label>
                     <br>
                     <br>
-                    <div class="col value-wrapper">
-                        <input class="hidebx" type="radio" name="donate-value" id="1" value="5">
-                        <label for="1" class="radio-btn col-6">
-                            <div class="display-box">
-                                <div class="d-value">€5</div>
-                            </div>
-                        </label>
-                        <input class="hidebx" type="radio" name="donate-value" id="2" value="20">
-                        <label for="2" class="radio-btn">
-                            <div class="display-box">
-                                <div class="d-value">€20</div>
-                            </div>
-                        </label>
-                        <input class="hidebx" type="radio" name="donate-value" id="3" value="50">
-                        <label for="3" class="radio-btn">
-                            <div class="display-box">
-                                <div class="d-value">€50</div>
-                            </div>
-                        </label>
-                        <input class="hidebx" type="radio" name="donate-value" id="4" value="100">
-                        <label for="4" class="radio-btn">
-                            <div class="display-box">
-                                <div class="d-value">€100</div>
-                            </div>
-                        </label>
-                    </div>
-                     <button class="donate-btn" type="submit" id="checkout-button">Donate</button>
+                     {% crispy amounts %}
+                     <p>When You chose amount and click on donate you will be redirected to the payment form.</p>
                   </form>
-                  <p>When You chose amount and click on donate you will be redirected to the payment form.</p>
                   {% else %}
                   <div class="row justify-content-center ">
                      <h4 class="info-text text-center">Please <a href="{% url 'account_signup' %}">signup</a> or simply
@@ -126,6 +101,4 @@
    </div>
    {% endblock %}
    {% block postloadjs %}
-   {{ block.super }}
-   <script src="{% static 'donation/js/checkout.js' %}"></script>
    {% endblock %}

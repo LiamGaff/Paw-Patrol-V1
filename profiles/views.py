@@ -12,11 +12,11 @@ def profile(request):
     """ Return profile page """
     profile = get_object_or_404(UserProfile, user=request.user)
     donations = Donation.objects.filter(email=request.user.email)
-    form = Amount()
+    amounts = Amount()
     context = {
         'profile': profile,
         'donations': donations,
-        'form': form,
+        'amounts': amounts
     }
     return render(request, 'profiles/profiles.html', context)
 
