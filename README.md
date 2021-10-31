@@ -3,7 +3,7 @@ PawPatrol is a web application designed to model a charitable organization that 
 
 
 ## Development Notes
-Due to problems with my payment system I was unable to get the webpage fully operational before my project deadline. The Edit animals function currently can't be used this was also due to time constraints. The payment form is not as secure as I would like and so further validation is required.
+Due to problems with my payment system I was unable to get the webpage fully operational before my project deadline. The Edit animals function currently can't be used this was also due to time constraints. The payment form is not as secure as I would like and so further validation is required. There are also some styling issues that will need correction.
 
 **Credentials for logging in**
 TestAdmin - Milestone4
